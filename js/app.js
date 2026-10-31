@@ -387,39 +387,280 @@
   updatePlayground();
 
   /* ============================================================
-     COLOUR SWATCHES
+     04 COLOUR SYSTEM — MASTER SWATCHES & PAIRINGS SIMULATOR
   ============================================================ */
   const swatchGrid = $('#color-swatch-grid');
   if (swatchGrid && DATA.colors) {
     swatchGrid.innerHTML = DATA.colors.core.map(c => `
-      <div class="color-swatch-card" role="button" tabindex="0"
-           data-hex="${c.hex}" aria-label="Copy ${c.name} hex: ${c.hex}">
-        <div class="swatch-block" style="background:${c.hex};" aria-hidden="true"></div>
-        <div class="swatch-info">
-          <div class="swatch-name">${c.name}</div>
-          <div class="swatch-hex">${c.hex}</div>
-          <div class="swatch-detail">RGB ${c.rgb}</div>
-          <div class="swatch-detail">CMYK ${c.cmyk}</div>
-          <div class="swatch-detail">Pantone ${c.pantone}</div>
-          <div class="swatch-role">${c.role}</div>
+      <div class="liquid-swatch-card liquid-glass-card" data-name="${c.name}" data-hex="${c.hex}" id="swatch-${c.name.toLowerCase().replace(/\s+/g, '-')}">
+        <div class="swatch-color-pod" style="background:${c.hex};">
+          <span class="swatch-pod-ratio">${c.name.includes('Navy') ? '60%' : c.name.includes('Ivory') ? '30%' : '10%'}</span>
         </div>
-        <div class="swatch-copy-hint" aria-hidden="true">Click to copy hex</div>
+        <div class="swatch-details-pane">
+          <div class="swatch-title-row">
+            <span class="swatch-name-lg">${c.name}</span>
+            <span class="pill-mini" style="margin-bottom:0;">${c.name.includes('Navy') ? 'Dominant' : c.name.includes('Ivory') ? 'Surface' : 'Accent'}</span>
+          </div>
+          <div class="swatch-role-tag">${c.role}</div>
+          <div class="swatch-codes-grid">
+            <div class="code-chip" data-copy="${c.hex}" title="Click to copy Hex code">
+              <span class="chip-label">HEX</span>
+              <span class="chip-val">${c.hex}</span>
+            </div>
+            <div class="code-chip" data-copy="rgb(${c.rgb})" title="Click to copy RGB code">
+              <span class="chip-label">RGB</span>
+              <span class="chip-val">${c.rgb}</span>
+            </div>
+            <div class="code-chip" data-copy="${c.cmyk}" title="Click to copy CMYK values">
+              <span class="chip-label">CMYK</span>
+              <span class="chip-val">${c.cmyk}</span>
+            </div>
+            <div class="code-chip" data-copy="Pantone ${c.pantone}" title="Click to copy Pantone code">
+              <span class="chip-label">PMS</span>
+              <span class="chip-val">${c.pantone}</span>
+            </div>
+          </div>
+        </div>
       </div>
     `).join('');
 
+    // Code chip copy event delegation
     swatchGrid.addEventListener('click', (e) => {
-      const card = e.target.closest('.color-swatch-card');
-      if (!card) return;
-      copyText(card.dataset.hex);
-      showToast('Copied ' + card.dataset.hex);
-    });
-    swatchGrid.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        const card = e.target.closest('.color-swatch-card');
-        if (card) { copyText(card.dataset.hex); showToast('Copied ' + card.dataset.hex); }
+      const chip = e.target.closest('.code-chip');
+      if (chip && chip.dataset.copy) {
+        e.stopPropagation();
+        copyText(chip.dataset.copy);
+        showToast('Copied ' + chip.dataset.copy);
+        return;
+      }
+      const card = e.target.closest('.liquid-swatch-card');
+      if (card && card.dataset.hex) {
+        copyText(card.dataset.hex);
+        showToast('Copied ' + card.dataset.hex);
       }
     });
+  }
+
+  // Interactive 60/30/10 Ratio Bar & Legend
+  const ratioSegs = $$('.ratio-seg');
+  const ratioLegendItems = $$('.ratio-legend-item');
+
+  function highlightSwatchCard(name) {
+    const cardId = name.toLowerCase().includes('navy') ? 'swatch-deep-navy'
+      : name.toLowerCase().includes('ivory') ? 'swatch-warm-ivory'
+      : 'swatch-electric-blue';
+    $$('.liquid-swatch-card').forEach(c => {
+      c.style.transform = '';
+      c.style.borderColor = '';
+      c.style.boxShadow = '';
+    });
+    const target = $(`#${cardId}`);
+    if (target) {
+      target.style.borderColor = 'var(--blue)';
+      target.style.boxShadow = '0 0 40px rgba(45, 107, 255, 0.45)';
+      target.style.transform = 'translateY(-4px)';
+      target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+
+  ratioSegs.forEach(seg => {
+    seg.addEventListener('click', () => {
+      const name = seg.dataset.swatch;
+      if (name) highlightSwatchCard(name);
+    });
+  });
+
+  ratioLegendItems.forEach(item => {
+    item.addEventListener('click', () => {
+      ratioLegendItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      const name = item.dataset.swatch;
+      if (name) highlightSwatchCard(name);
+    });
+  });
+
+  // Approved Brand Pairings Simulator (Page 28 PDF)
+  const brandPairings = [
+    {
+      id: 'ivory-on-navy',
+      name: 'Warm Ivory on Deep Navy',
+      fg: '#F5F1E8',
+      bg: '#0B1F3A',
+      accent: '#2D6BFF',
+      badge: 'STRATEGIC ADVISORY',
+      headline: 'Clarity in complexity.',
+      body: 'We build the systems and frameworks that convert strategic ambition into quarterly execution.',
+      meta: 'ARR Multiple: 2.8x',
+      btnText: 'Explore Framework →',
+      btnBg: '#2D6BFF',
+      btnFg: '#F5F1E8',
+      badgeBg: 'rgba(45,107,255,0.18)',
+      badgeFg: '#2D6BFF',
+      ratio: '13.2 : 1',
+      wcag: 'AAA Pass',
+      wcagClass: 'badge-aaa',
+      context: 'Primary Dark Viewport',
+      rule: 'Official primary dark mode presentation. Exceeds WCAG AAA requirements for maximum readability across all screen calibrations.'
+    },
+    {
+      id: 'navy-on-ivory',
+      name: 'Deep Navy on Warm Ivory',
+      fg: '#0B1F3A',
+      bg: '#F5F1E8',
+      accent: '#2D6BFF',
+      badge: 'EDITORIAL READING PLANE',
+      headline: 'Evidence over opinion.',
+      body: 'Decisions backed by rigorous market data eliminate corporate clutter and empower senior leadership.',
+      meta: 'Confidence Score: 98%',
+      btnText: 'View Case Study →',
+      btnBg: '#0B1F3A',
+      btnFg: '#F5F1E8',
+      badgeBg: 'rgba(11,31,58,0.1)',
+      badgeFg: '#0B1F3A',
+      ratio: '13.2 : 1',
+      wcag: 'AAA Pass',
+      wcagClass: 'badge-aaa',
+      context: 'Editorial & Print Deliverables',
+      rule: 'Primary reading ground for advisory deliverables, whitepapers, financial models, and print collateral. Clean, authoritative, and restful on the eyes.'
+    },
+    {
+      id: 'blue-on-navy',
+      name: 'Electric Blue on Deep Navy',
+      fg: '#2D6BFF',
+      bg: '#0B1F3A',
+      accent: '#F5F1E8',
+      badge: 'NAVIGATIONAL ACCENT',
+      headline: 'Direction of clarity.',
+      body: 'Electric Blue provides high-intent directional focus across navigation, active states, and section numbers.',
+      meta: 'Navigation Index: 04',
+      btnText: 'Launch Portal →',
+      btnBg: 'rgba(45,107,255,0.2)',
+      btnFg: '#FFFFFF',
+      badgeBg: 'rgba(45,107,255,0.25)',
+      badgeFg: '#FFFFFF',
+      ratio: '4.8 : 1',
+      wcag: 'AA Pass',
+      wcagClass: 'badge-aa',
+      context: 'Indicators & Large Display (24px+)',
+      rule: 'Meets WCAG AA for large text (18pt+) and graphic interface indicators. Strictly permitted for major section numbers, active underlines, and display headings.'
+    },
+    {
+      id: 'ivory-on-blue',
+      name: 'Warm Ivory on Electric Blue',
+      fg: '#F5F1E8',
+      bg: '#2D6BFF',
+      accent: '#FFFFFF',
+      badge: 'PRIMARY CTA BUTTONS',
+      headline: 'Immediate Execution.',
+      body: 'Solid Electric Blue backgrounds reserved strictly for primary interactive actions, pill tags, and key milestones.',
+      meta: 'Action State: Active',
+      btnText: 'Confirm & Scale →',
+      btnBg: '#0B1F3A',
+      btnFg: '#F5F1E8',
+      badgeBg: 'rgba(255,255,255,0.22)',
+      badgeFg: '#FFFFFF',
+      ratio: '4.2 : 1',
+      wcag: 'AA Large Pass',
+      wcagClass: 'badge-aa',
+      context: 'Button Fills & Pill Badges',
+      rule: 'Standard treatment for all high-intent conversion buttons, pill badges, and interactive callouts. Always use bold or semi-bold weight (minimum 14px).'
+    },
+    {
+      id: 'blue-on-ivory',
+      name: 'Electric Blue on Warm Ivory',
+      fg: '#2D6BFF',
+      bg: '#F5F1E8',
+      accent: '#0B1F3A',
+      badge: '⚠️ RESTRICTED DISPLAY',
+      headline: 'Large Headlines (24px+)',
+      body: 'Guideline Page 28 strictly forbids Electric Blue for body copy on Ivory. Only permitted for oversized numbers, display charts, or key decorative icons.',
+      meta: 'Restricted Context',
+      btnText: 'Compliance Notice',
+      btnBg: 'rgba(45,107,255,0.12)',
+      btnFg: '#2D6BFF',
+      badgeBg: 'rgba(45,107,255,0.18)',
+      badgeFg: '#2D6BFF',
+      ratio: '2.7 : 1',
+      wcag: 'Restricted (24px+)',
+      wcagClass: 'badge-a',
+      context: 'Display Only (24px+) / Never Body Text',
+      rule: '⚠️ RESTRICTED USAGE: Guideline Page 28 strictly forbids Electric Blue for body copy on Ivory due to 2.7:1 contrast ratio. Permitted ONLY for large 24px+ headline numbers or icons.'
+    }
+  ];
+
+  const simulatorPairTabs = $('#simulator-pair-tabs');
+  const simPreviewInner = $('#simulator-preview-inner');
+  const simBadge = $('#sim-badge');
+  const simHeadline = $('#sim-headline');
+  const simBody = $('#sim-body');
+  const simMeta = $('#sim-meta');
+  const simButton = $('#sim-button');
+  const simRatio = $('#sim-ratio');
+  const simWcag = $('#sim-wcag');
+  const simContext = $('#sim-context');
+  const simRuleText = $('#sim-rule-text');
+
+  function selectPairing(pairId) {
+    const pair = brandPairings.find(p => p.id === pairId) || brandPairings[0];
+    $$('.sim-pair-pill').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.pairId === pair.id);
+    });
+
+    if (simPreviewInner) {
+      simPreviewInner.style.background = pair.bg;
+      simPreviewInner.style.color = pair.fg;
+    }
+    if (simBadge) {
+      simBadge.textContent = pair.badge;
+      simBadge.style.background = pair.badgeBg;
+      simBadge.style.color = pair.badgeFg;
+    }
+    if (simHeadline) {
+      simHeadline.textContent = pair.headline;
+      simHeadline.style.color = pair.fg;
+    }
+    if (simBody) {
+      simBody.textContent = pair.body;
+      simBody.style.color = pair.fg;
+      simBody.style.opacity = '0.9';
+    }
+    if (simMeta) {
+      simMeta.textContent = pair.meta;
+      simMeta.style.color = pair.fg;
+    }
+    if (simButton) {
+      simButton.textContent = pair.btnText;
+      simButton.style.background = pair.btnBg;
+      simButton.style.color = pair.btnFg;
+    }
+    if (simRatio) simRatio.textContent = pair.ratio;
+    if (simWcag) {
+      simWcag.textContent = pair.wcag;
+      simWcag.className = 'telemetry-val ' + pair.wcagClass;
+    }
+    if (simContext) simContext.textContent = pair.context;
+    if (simRuleText) simRuleText.textContent = pair.rule;
+  }
+
+  if (simulatorPairTabs) {
+    simulatorPairTabs.innerHTML = brandPairings.map((p, idx) => `
+      <button class="sim-pair-pill ${idx === 0 ? 'active' : ''}" data-pair-id="${p.id}" role="tab" aria-label="Select pairing ${p.name}">
+        <span class="sim-dot-pair">
+          <span class="sim-dot-fg" style="background:${p.fg};"></span>
+          <span class="sim-dot-bg" style="background:${p.bg};"></span>
+        </span>
+        <span>${p.name.split(' on ')[0]} on ${p.name.split(' on ')[1]}</span>
+      </button>
+    `).join('');
+
+    simulatorPairTabs.addEventListener('click', (e) => {
+      const btn = e.target.closest('.sim-pair-pill');
+      if (btn && btn.dataset.pairId) {
+        selectPairing(btn.dataset.pairId);
+      }
+    });
+
+    selectPairing('ivory-on-navy');
   }
 
   // Extended swatches
@@ -442,30 +683,8 @@
     });
   }
 
-  // Contrast matrix
-  const contrastMatrix = $('#contrast-matrix');
-  const pairs = [
-    { fg: '#F5F1E8', bg: '#0B1F3A', fgN: 'Ivory', bgN: 'Navy', ratio: '13.2:1', pass: 'AAA' },
-    { fg: '#0B1F3A', bg: '#F5F1E8', fgN: 'Navy', bgN: 'Ivory', ratio: '13.2:1', pass: 'AAA' },
-    { fg: '#F5F1E8', bg: '#2D6BFF', fgN: 'Ivory', bgN: 'Blue', ratio: '3.1:1', pass: 'A (large)' },
-    { fg: '#2D6BFF', bg: '#0B1F3A', fgN: 'Blue', bgN: 'Navy', ratio: '4.8:1', pass: 'AA' },
-    { fg: '#FFFFFF', bg: '#0B1F3A', fgN: 'White', bgN: 'Navy', ratio: '14.7:1', pass: 'AAA' },
-    { fg: '#FFFFFF', bg: '#2D6BFF', fgN: 'White', bgN: 'Blue', ratio: '3.5:1', pass: 'A (large)' },
-  ];
-
-  if (contrastMatrix) {
-    contrastMatrix.innerHTML = `<div class="contrast-grid">${pairs.map(p => `
-      <div class="contrast-pair" style="background:${p.bg};border:1px solid rgba(255,255,255,0.08);">
-        <div class="contrast-sample" style="color:${p.fg};font-family:var(--font-display);font-weight:700;font-size:18px;">${p.fgN}</div>
-        <div class="contrast-sample" style="color:${p.fg};font-size:13px;opacity:0.7;">on ${p.bgN}</div>
-        <div class="contrast-badge ${p.pass.startsWith('AAA') ? 'badge-aaa' : p.pass.startsWith('AA') ? 'badge-aa' : 'badge-a'}">${p.pass}</div>
-        <div class="contrast-ratio" style="color:${p.fg};opacity:0.6;font-size:12px;">${p.ratio}</div>
-      </div>
-    `).join('')}</div>`;
-  }
-
   /* ============================================================
-     TYPOGRAPHY HIERARCHY
+     05 TYPOGRAPHY HIERARCHY & STUDIO
   ============================================================ */
   const typeHierarchy = $('#type-hierarchy');
   if (typeHierarchy && DATA.typography) {
@@ -475,48 +694,60 @@
         <div class="th-sample" style="
           font-family:${h.font.includes('Manrope') ? "'Manrope', sans-serif" : "'DM Sans', sans-serif"};
           font-weight:${h.font.includes('Bold') ? 700 : h.font.includes('Semi') ? 600 : h.font.includes('Medium') ? 500 : h.font.includes('Light') ? 300 : 400};
-          font-size:clamp(15px, ${h.size.split('–')[0].trim()}, ${h.size.split('–')[1] || h.size.split('–')[0].trim()});
+          font-size:clamp(16px, 2.4vw, ${h.size.split('–')[1] || h.size.split('–')[0].trim()});
           line-height:${h.lh};
-          letter-spacing:${h.tracking || '0'};
+          letter-spacing:${h.tracking ? (parseInt(h.tracking)/100) + 'em' : '0'};
         ">The direction of clarity.</div>
         <div class="th-spec">
           <span><strong>${h.font}</strong></span>
-          <span>${h.size}</span>
-          <span>LH ${h.lh}</span>
-          ${h.tracking ? `<span>+${h.tracking} tracking</span>` : ''}
+          <span>${h.size} • LH ${h.lh}</span>
+          ${h.tracking ? `<span>Tracking +${h.tracking}</span>` : '<span>Tracking 0</span>'}
         </div>
       </div>
     `).join('');
   }
 
   /* ============================================================
-     TYPOGRAPHY STUDIO
+     TYPOGRAPHY STUDIO WITH PRESETS & LIVE CSS GENERATOR
   ============================================================ */
   const studioFont = $('#studio-font');
   const studioWeight = $('#studio-weight');
   const studioSize = $('#studio-size');
   const studioTracking = $('#studio-tracking');
+  const studioLh = $('#studio-lh');
   const studioSizeVal = $('#studio-size-val');
   const studioTrackingVal = $('#studio-tracking-val');
+  const studioLhVal = $('#studio-lh-val');
   const studioPreviewInner = $('#studio-preview-inner');
   const studioPreview = $('#studio-preview');
+  const typeCssOutput = $('#type-css-output');
+  const btnCopyTypeCss = $('#btn-copy-type-css');
 
   const studioBgColors = { navy: '#0B1F3A', ivory: '#F5F1E8', blue: '#2D6BFF' };
-  const studioBgText = { navy: '#F5F1E8', ivory: '#0B1F3A', blue: '#F5F1E8' };
+  const studioBgText = { navy: '#F5F1E8', ivory: '#0B1F3A', blue: '#FFFFFF' };
   let studioBg = 'navy';
+
+  const typePresets = {
+    h1: { font: "'Manrope', sans-serif", weight: '700', size: '48', tracking: '-2', lh: '110', text: 'Clarity in complexity.' },
+    h2: { font: "'Manrope', sans-serif", weight: '600', size: '32', tracking: '-1', lh: '115', text: 'We turn complexity into a plan you can act on this quarter.' },
+    metric: { font: "'Manrope', sans-serif", weight: '800', size: '64', tracking: '-3', lh: '100', text: '$48.5M ARR (+34%)' },
+    body: { font: "'DM Sans', sans-serif", weight: '400', size: '18', tracking: '0', lh: '155', text: 'Strategic growth requires eliminating vanity initiatives and committing resources to defensible operational moats.' },
+    caption: { font: "'DM Sans', sans-serif", weight: '500', size: '13', tracking: '4', lh: '140', text: 'EXECUTIVE MEMORANDUM • CONFIDENTIAL • Q3 REVIEW' }
+  };
 
   function updateStudio() {
     if (!studioPreviewInner) return;
     const font = studioFont ? studioFont.value : "'Manrope', sans-serif";
     const weight = studioWeight ? studioWeight.value : '700';
-    const size = studioSize ? studioSize.value : '32';
-    const tracking = studioTracking ? (parseInt(studioTracking.value) / 100).toFixed(2) : '0';
+    const size = studioSize ? studioSize.value : '48';
+    const tracking = studioTracking ? (parseInt(studioTracking.value) / 100).toFixed(2) : '-0.02';
+    const lh = studioLh ? (parseInt(studioLh.value) / 100).toFixed(2) : '1.1';
 
     studioPreviewInner.style.fontFamily = font;
     studioPreviewInner.style.fontWeight = weight;
     studioPreviewInner.style.fontSize = size + 'px';
     studioPreviewInner.style.letterSpacing = tracking + 'em';
-    studioPreviewInner.style.lineHeight = '1.2';
+    studioPreviewInner.style.lineHeight = lh;
 
     if (studioPreview) {
       studioPreview.style.background = studioBgColors[studioBg] || '#0B1F3A';
@@ -524,13 +755,42 @@
     }
 
     if (studioSizeVal) studioSizeVal.textContent = size;
-    if (studioTrackingVal) studioTrackingVal.textContent = (parseInt(studioTracking ? studioTracking.value : 0) / 100).toFixed(2);
+    if (studioTrackingVal) studioTrackingVal.textContent = tracking;
+    if (studioLhVal) studioLhVal.textContent = studioLh ? studioLh.value : '110';
+
+    if (typeCssOutput) {
+      typeCssOutput.innerHTML = `<code>font-family: ${font};
+font-weight: ${weight};
+font-size: ${size}px;
+line-height: ${lh};
+letter-spacing: ${tracking}em;</code>`;
+    }
   }
 
-  [studioFont, studioWeight, studioSize, studioTracking].forEach(el => {
+  [studioFont, studioWeight, studioSize, studioTracking, studioLh].forEach(el => {
     if (el) el.addEventListener('input', updateStudio);
   });
 
+  // Presets handling
+  $$('.preset-pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      $$('.preset-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const preset = typePresets[btn.dataset.preset];
+      if (!preset) return;
+
+      if (studioFont) studioFont.value = preset.font;
+      if (studioWeight) studioWeight.value = preset.weight;
+      if (studioSize) studioSize.value = preset.size;
+      if (studioTracking) studioTracking.value = preset.tracking;
+      if (studioLh) studioLh.value = preset.lh;
+      if (studioPreviewInner) studioPreviewInner.textContent = preset.text;
+
+      updateStudio();
+    });
+  });
+
+  // Ground tabs
   $$('#studio-bg-tabs .radio-tab').forEach(btn => {
     btn.addEventListener('click', () => {
       $$('#studio-bg-tabs .radio-tab').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
@@ -540,6 +800,14 @@
       updateStudio();
     });
   });
+
+  // Copy CSS button
+  if (btnCopyTypeCss && typeCssOutput) {
+    btnCopyTypeCss.addEventListener('click', () => {
+      copyText(typeCssOutput.innerText);
+      showToast('Copied CSS snippet');
+    });
+  }
 
   updateStudio();
 

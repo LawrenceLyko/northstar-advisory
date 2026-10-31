@@ -99,34 +99,82 @@
   <div id="mobile-backdrop" class="mobile-backdrop" aria-hidden="true"></div>
 
   <!-- ============================================================
-       HERO — PRIMARY LOGO AS FRONT FACE
+       HERO — PRIMARY LOGO AS FRONT FACE (LIQUID GLASS WIDESCREEN)
   ============================================================ -->
   <section id="hero" class="hero" aria-label="Hero">
     <div class="hero-pattern" aria-hidden="true"></div>
-    <div class="hero-inner">
-      <!-- Front Face Primary Logo Showcase -->
-      <div class="hero-primary-face">
-        <div class="hero-logo-glow" aria-hidden="true"></div>
-        <div class="hero-logo-frame" title="Northstar Advisory — Official Primary Logo">
-          <img src="assets/logos/primary-logo.svg" alt="Northstar Advisory — Primary Logo" class="hero-primary-logo" />
-        </div>
+    <div class="liquid-ambient-orb orb-1" aria-hidden="true"></div>
+    <div class="liquid-ambient-orb orb-2" aria-hidden="true"></div>
+
+    <div class="hero-inner hero-widescreen-grid">
+      <!-- Left Column: Strategic Authority & Telemetry -->
+      <div class="hero-content-col">
         <div class="hero-badge-pill">
           <span class="hero-badge-dot"></span>
-          <span>OFFICIAL BRAND IDENTITY &amp; GUIDELINES V1.0</span>
+          <span>OFFICIAL BRAND IDENTITY &amp; GUIDELINES V1.0 • APPROVED</span>
         </div>
-      </div>
 
-      <div class="hero-content">
         <p class="hero-eyebrow">Strategic Business Consultancy</p>
         <h1 class="hero-title reveal-line">Clarity in complexity.</h1>
         <p class="hero-tagline reveal-line">We turn complexity into a plan you can act on this quarter.</p>
+
+        <!-- Executive Telemetry Strip -->
+        <div class="hero-telemetry-strip">
+          <div class="telemetry-pill">
+            <span class="pill-value">60 / 30 / 10</span>
+            <span class="pill-label">Color Ratio</span>
+          </div>
+          <div class="telemetry-pill">
+            <span class="pill-value">Dual Type</span>
+            <span class="pill-label">Manrope &amp; DM Sans</span>
+          </div>
+          <div class="telemetry-pill">
+            <span class="pill-value">42 Slides</span>
+            <span class="pill-label">Portal Guidelines</span>
+          </div>
+        </div>
+
         <div class="hero-cta">
           <a href="#logo-system" class="btn-primary">Explore Logo System →</a>
           <a href="#inspector" class="btn-secondary">42-Page Slide Viewer</a>
           <a href="#assets-hub" class="btn-ghost">Asset Downloads (ZIP)</a>
         </div>
       </div>
+
+      <!-- Right Column: Front Face Primary Logo in Liquid Glass Pedestal -->
+      <div class="hero-display-col">
+        <div class="hero-liquid-pedestal liquid-glass-card" title="Northstar Advisory — Official Primary Logo Lockup">
+          <div class="hero-logo-glow" aria-hidden="true"></div>
+
+          <!-- Floating Glass Specs -->
+          <div class="pedestal-glass-pill pill-top">
+            <span class="pill-dot"></span>
+            <span>Vector SVG • Infinite Res</span>
+          </div>
+
+          <div class="hero-logo-stage">
+            <img src="assets/logos/primary-logo.svg" alt="Northstar Advisory — Primary Logo" class="hero-primary-logo" />
+          </div>
+
+          <!-- Bottom Floating Glass Specs -->
+          <div class="pedestal-bottom-strip">
+            <div class="pedestal-glass-pill">
+              <span>Electric Blue Squircle</span>
+            </div>
+            <div class="pedestal-glass-pill">
+              <span>1:1 Star Mark Lockup</span>
+            </div>
+          </div>
+
+          <!-- Pedestal Quick Action Dock -->
+          <div class="pedestal-action-dock">
+            <a href="#logo-system" class="dock-link">Playground</a>
+            <a href="assets/logos/primary-logo.svg" download="Northstar_Primary_Logo.svg" class="dock-link dock-link-primary">Download SVG ↓</a>
+          </div>
+        </div>
+      </div>
     </div>
+
     <div class="hero-scroll-hint" aria-hidden="true">
       <span>Scroll to explore</span>
       <div class="scroll-line"></div>
@@ -360,108 +408,334 @@
   </section>
 
   <!-- ============================================================
-       04 COLOUR SYSTEM
+       04 COLOUR SYSTEM (LIQUID GLASS & WIDESCREEN SIMULATOR)
   ============================================================ -->
-  <section id="colour-system" class="section" aria-labelledby="colour-title">
+  <section id="colour-system" class="section colour-system-section" aria-labelledby="colour-title">
     <div class="container">
-      <span class="section-label">04 — Colour System</span>
-      <h2 class="section-title" id="colour-title">Colour Palette</h2>
-      <p class="section-subtitle">A restrained, authoritative palette anchored by Deep Navy dominance with vibrant Electric Blue navigational accents. Click any swatch to copy the hex code.</p>
+      <div class="section-header-block">
+        <span class="section-label">04 — Colour System</span>
+        <h2 class="section-title" id="colour-title">Colour Architecture &amp; Ratios</h2>
+        <p class="section-subtitle">
+          A disciplined, authoritative palette anchored by Deep Navy dominance (60%) for structural trust, Warm Ivory (30%) for editorial clarity, and vibrant Electric Blue (10%) for intentional navigational guidance.
+        </p>
+      </div>
 
-      <!-- Colour ratio bar -->
-      <div class="colour-ratio-bar" role="img" aria-label="60% Navy, 30% Ivory, 10% Electric Blue">
-        <div class="ratio-seg" style="width:60%;background:#0B1F3A;" title="Deep Navy 60%">
-          <span>60% Deep Navy</span>
+      <!-- 60/30/10 Ratio Visualizer with Liquid Glass Framing -->
+      <div class="liquid-ratio-card liquid-glass-card">
+        <div class="ratio-header">
+          <div class="ratio-title-group">
+            <span class="ratio-tag">Brand Rule</span>
+            <h3 class="ratio-heading">The 60 / 30 / 10 Proportional Balance</h3>
+          </div>
+          <p class="ratio-summary">Every brand communication must maintain this balance to preserve executive authority and avoid visual clutter.</p>
         </div>
-        <div class="ratio-seg" style="width:30%;background:#F5F1E8;color:#0B1F3A;" title="Warm Ivory 30%">
-          <span>30% Warm Ivory</span>
+        
+        <div class="colour-ratio-bar" id="colour-ratio-bar" role="img" aria-label="60% Navy, 30% Ivory, 10% Electric Blue">
+          <div class="ratio-seg seg-navy" data-swatch="Deep Navy" style="width:60%;" title="Deep Navy 60% — Foundational Tone">
+            <span class="seg-content"><strong>60%</strong> Deep Navy</span>
+          </div>
+          <div class="ratio-seg seg-ivory" data-swatch="Warm Ivory" style="width:30%;" title="Warm Ivory 30% — Reading Ground">
+            <span class="seg-content"><strong>30%</strong> Warm Ivory</span>
+          </div>
+          <div class="ratio-seg seg-blue" data-swatch="Electric Blue" style="width:10%;" title="Electric Blue 10% — Navigational Accent">
+            <span class="seg-content"><strong>10%</strong> Blue</span>
+          </div>
         </div>
-        <div class="ratio-seg" style="width:10%;background:#2D6BFF;" title="Electric Blue 10%">
-          <span>10% Blue</span>
+        
+        <div class="ratio-legend-grid">
+          <div class="ratio-legend-item" data-swatch="Deep Navy">
+            <span class="legend-dot" style="background:#0B1F3A;"></span>
+            <div class="legend-text">
+              <span class="legend-name">Deep Navy (60%)</span>
+              <span class="legend-desc">Dominant backgrounds &amp; foundational structural tone</span>
+            </div>
+          </div>
+          <div class="ratio-legend-item" data-swatch="Warm Ivory">
+            <span class="legend-dot" style="background:#F5F1E8;border:1px solid rgba(0,0,0,0.15);"></span>
+            <div class="legend-text">
+              <span class="legend-name">Warm Ivory (30%)</span>
+              <span class="legend-desc">Reading surfaces, cards, print deliverables &amp; warmth</span>
+            </div>
+          </div>
+          <div class="ratio-legend-item" data-swatch="Electric Blue">
+            <span class="legend-dot" style="background:#2D6BFF;"></span>
+            <div class="legend-text">
+              <span class="legend-name">Electric Blue (10%)</span>
+              <span class="legend-desc">CTAs, links, badges &amp; key navigational indicators</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="ratio-labels">
-        <span>Deep Navy #0B1F3A (60%)</span><span>Warm Ivory #F5F1E8 (30%)</span><span>Electric Blue #2D6BFF (10%)</span>
+
+      <!-- Desktop Split Workstation: Core Swatches (Left) & Live Pairings Simulator (Right) -->
+      <div class="colour-desktop-grid">
+        <!-- Left: 3 Core Swatches in Liquid Glass Cards -->
+        <div class="colour-swatches-column">
+          <div class="column-eyebrow">
+            <span class="pill-mini">Core Palette</span>
+            <h3>Master Brand Swatches</h3>
+          </div>
+          <div class="color-swatch-grid" id="color-swatch-grid">
+            <!-- Populated with Liquid Glass Master Cards -->
+          </div>
+        </div>
+
+        <!-- Right: Live Colour Pairings Simulator & Accessibility Workstation (Page 28 PDF) -->
+        <div class="colour-simulator-column">
+          <div class="column-eyebrow">
+            <span class="pill-mini">Page 28 Master Guide</span>
+            <h3>Approved Pairings &amp; Accessibility Simulator</h3>
+          </div>
+          
+          <div class="liquid-simulator-card liquid-glass-card" id="colour-simulator-card">
+            <!-- Simulator Controls / Pair Selectors -->
+            <div class="simulator-selector-tabs" id="simulator-pair-tabs" role="tablist" aria-label="Approved color pairing selector">
+              <!-- Populated by JS -->
+            </div>
+
+            <!-- Live Rendering Preview Card -->
+            <div class="simulator-preview-stage" id="simulator-preview-stage">
+              <div class="simulator-preview-inner" id="simulator-preview-inner">
+                <div class="sim-badge" id="sim-badge">STRATEGIC ADVISORY</div>
+                <h4 class="sim-headline" id="sim-headline">Clarity in complexity.</h4>
+                <p class="sim-body" id="sim-body">We build the systems and frameworks that convert strategic ambition into quarterly execution.</p>
+                <div class="sim-footer">
+                  <span class="sim-meta" id="sim-meta">Metric: +48% Growth</span>
+                  <button class="sim-button" id="sim-button">Explore Framework →</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Telemetry & Accessibility Validation -->
+            <div class="simulator-telemetry">
+              <div class="telemetry-stat">
+                <span class="telemetry-label">Contrast Ratio</span>
+                <span class="telemetry-val" id="sim-ratio">13.2 : 1</span>
+              </div>
+              <div class="telemetry-stat">
+                <span class="telemetry-label">WCAG Compliance</span>
+                <span class="telemetry-val badge-aaa" id="sim-wcag">AAA Pass</span>
+              </div>
+              <div class="telemetry-stat">
+                <span class="telemetry-label">Permitted Context</span>
+                <span class="telemetry-val" id="sim-context">Primary Digital Surface</span>
+              </div>
+            </div>
+
+            <!-- Usage Rule Callout -->
+            <div class="simulator-rule-callout" id="sim-rule-callout">
+              <span class="rule-icon">ℹ️</span>
+              <p id="sim-rule-text">Warm Ivory text on Deep Navy is the official primary dark mode presentation. Exceeds WCAG AAA requirements for maximum readability across all screen calibrations.</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Core swatches -->
-      <div class="color-swatch-grid" id="color-swatch-grid">
-        <!-- Populated by JS -->
-      </div>
+      <!-- Extended Palette & Design Tokens -->
+      <div class="extended-palette-section" style="margin-top:64px;">
+        <div class="section-sub-header">
+          <h3 class="subsection-title">Extended Tonal Ramp &amp; UI System Tokens</h3>
+          <p style="color:var(--fg-muted);font-size:14px;">Functional gradations engineered for borders, subtle card elevations, and hover states.</p>
+        </div>
 
-      <!-- Extended palette -->
-      <h3 class="subsection-title" style="margin-top:48px;">Extended Palette</h3>
-      <div class="extended-swatches" id="extended-swatches">
-        <!-- Populated by JS -->
-      </div>
+        <div class="extended-swatches" id="extended-swatches">
+          <!-- Populated by JS -->
+        </div>
 
-      <!-- WCAG contrast matrix -->
-      <h3 class="subsection-title" style="margin-top:48px;">Contrast & Accessibility</h3>
-      <p style="color:var(--fg-muted);margin-bottom:24px;font-size:15px;">All primary pairings meet WCAG AA (4.5:1 minimum). Primary pairings exceed WCAG AAA (7:1).</p>
-      <div class="contrast-matrix" id="contrast-matrix">
-        <!-- Populated by JS -->
+        <!-- Functional Tokens Architecture Table -->
+        <div class="tokens-architecture-card liquid-glass-card" style="margin-top:28px;">
+          <h4 class="tokens-table-title">Semantic Design Token Architecture</h4>
+          <div class="tokens-table-wrapper">
+            <table class="tokens-table">
+              <thead>
+                <tr>
+                  <th>Token Name</th>
+                  <th>Value</th>
+                  <th>Visual Role</th>
+                  <th>Accessibility Guardrail</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>--bg-primary</code></td>
+                  <td><span class="token-chip" style="background:#0B1F3A;"></span> <code>#0B1F3A</code> (Deep Navy)</td>
+                  <td>Master dark viewport &amp; hero background</td>
+                  <td>Requires Ivory or White text (AAA)</td>
+                </tr>
+                <tr>
+                  <td><code>--surface-reading</code></td>
+                  <td><span class="token-chip" style="background:#F5F1E8;"></span> <code>#F5F1E8</code> (Warm Ivory)</td>
+                  <td>Editorial cards, reading planes &amp; print</td>
+                  <td>Requires Deep Navy text (AAA)</td>
+                </tr>
+                <tr>
+                  <td><code>--accent-interactive</code></td>
+                  <td><span class="token-chip" style="background:#2D6BFF;"></span> <code>#2D6BFF</code> (Electric Blue)</td>
+                  <td>Primary buttons, links, active pills, indicators</td>
+                  <td>Text on Blue must be Ivory or White</td>
+                </tr>
+                <tr>
+                  <td><code>--accent-hover</code></td>
+                  <td><span class="token-chip" style="background:#4D82FF;"></span> <code>#4D82FF</code> (Blue Hover)</td>
+                  <td>Hover state for interactive electric blue items</td>
+                  <td>High-luminous feedback</td>
+                </tr>
+                <tr>
+                  <td><code>--border-hairline</code></td>
+                  <td><span class="token-chip" style="background:rgba(206,224,242,0.2);"></span> <code>rgba(206, 224, 242, 0.2)</code></td>
+                  <td>1px liquid glass structural borders &amp; dividers</td>
+                  <td>Non-text UI contrast rule (3:1)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       05 TYPOGRAPHY
+       05 TYPOGRAPHY (DUAL SPECIMEN & INTERACTIVE STUDIO)
   ============================================================ -->
-  <section id="typography" class="section" aria-labelledby="type-title">
+  <section id="typography" class="section typography-section" aria-labelledby="type-title">
     <div class="container">
-      <span class="section-label">05 — Typography</span>
-      <h2 class="section-title" id="type-title">Typography System</h2>
-      <p class="section-subtitle">Manrope for headlines and authority. DM Sans for body clarity and high-density financial/advisory information.</p>
+      <div class="section-header-block">
+        <span class="section-label">05 — Typography</span>
+        <h2 class="section-title" id="type-title">Typography System</h2>
+        <p class="section-subtitle">
+          A dual-type architecture engineered for institutional gravitas and effortless comprehension: Manrope commands display hierarchy with crisp geometric precision, while DM Sans provides warm, high-density reading clarity for advisory documents.
+        </p>
+      </div>
 
-      <!-- Typeface showcases -->
-      <div class="grid-2" style="margin-bottom:48px;">
-        <div class="type-specimen card">
-          <div class="specimen-label">Primary Display — Manrope</div>
-          <div class="specimen-display" style="font-family:'Manrope',sans-serif;font-size:clamp(44px,6vw,80px);font-weight:800;line-height:1;color:var(--fg);">Aa</div>
-          <div class="specimen-weights">
-            <span style="font-family:'Manrope',sans-serif;font-weight:300;">Light 300</span>
-            <span style="font-family:'Manrope',sans-serif;font-weight:400;">Regular 400</span>
-            <span style="font-family:'Manrope',sans-serif;font-weight:500;">Medium 500</span>
-            <span style="font-family:'Manrope',sans-serif;font-weight:600;">SemiBold 600</span>
-            <span style="font-family:'Manrope',sans-serif;font-weight:700;">Bold 700</span>
-            <span style="font-family:'Manrope',sans-serif;font-weight:800;">ExtraBold 800</span>
+      <!-- Dual Specimen Master Cards (Side-by-Side Widescreen) -->
+      <div class="type-specimens-widescreen">
+        <!-- Specimen 1: Manrope -->
+        <div class="type-specimen-card liquid-glass-card">
+          <div class="specimen-card-header">
+            <div>
+              <span class="specimen-badge">Primary Display Typeface</span>
+              <h3 class="specimen-family-name">Manrope</h3>
+              <p class="specimen-designer">Geometric Grotesque • Designed by Mikhail Sharanda</p>
+            </div>
+            <a href="https://fonts.google.com/specimen/Manrope" target="_blank" rel="noopener" class="specimen-external-link" title="Open Google Fonts">Google Fonts ↗</a>
           </div>
-          <p class="specimen-use">Headlines, Executive Titles, Numbers, Buttons</p>
+
+          <div class="specimen-large-glyph">
+            <span class="glyph-char">Aa</span>
+            <span class="glyph-preview-string">NORTHSTAR</span>
+          </div>
+
+          <div class="specimen-weights-strip">
+            <div class="weight-cell"><span class="w-label">Light 300</span><span class="w-sample" style="font-family:'Manrope';font-weight:300;">Strategic Counsel</span></div>
+            <div class="weight-cell"><span class="w-label">Regular 400</span><span class="w-sample" style="font-family:'Manrope';font-weight:400;">Clarity in Complexity</span></div>
+            <div class="weight-cell"><span class="w-label">Medium 500</span><span class="w-sample" style="font-family:'Manrope';font-weight:500;">Measurable Growth</span></div>
+            <div class="weight-cell"><span class="w-label">SemiBold 600</span><span class="w-sample" style="font-family:'Manrope';font-weight:600;">System Architecture</span></div>
+            <div class="weight-cell"><span class="w-label">Bold 700</span><span class="w-sample" style="font-family:'Manrope';font-weight:700;">Executive Pitch</span></div>
+            <div class="weight-cell"><span class="w-label">ExtraBold 800</span><span class="w-sample" style="font-family:'Manrope';font-weight:800;">Enterprise Vision</span></div>
+          </div>
+
+          <div class="specimen-character-set">
+            <span class="char-label">Glyphs &amp; Numerals</span>
+            <div class="chars-display" style="font-family:'Manrope';">
+              ABCDEFGHIJKLM NOPQRSTUVWXYZ<br>
+              abcdefghijklm nopqrstuvwxyz<br>
+              0123456789 &amp; @ $ € £ % ( ) [ ]
+            </div>
+          </div>
+
+          <div class="specimen-usage-meta">
+            <span class="meta-item"><strong>Primary Role:</strong> Headlines (H1–H3), Hero Display, Numbers, Action Buttons</span>
+            <span class="meta-item"><strong>Digital Fallback:</strong> <code>Manrope, Inter, -apple-system, sans-serif</code></span>
+          </div>
         </div>
-        <div class="type-specimen card">
-          <div class="specimen-label">Secondary Body — DM Sans</div>
-          <div class="specimen-display" style="font-family:'DM Sans',sans-serif;font-size:clamp(44px,6vw,80px);font-weight:400;line-height:1;color:var(--fg);">Aa</div>
-          <div class="specimen-weights">
-            <span style="font-family:'DM Sans',sans-serif;font-weight:400;">Regular 400</span>
-            <span style="font-family:'DM Sans',sans-serif;font-weight:500;">Medium 500</span>
-            <span style="font-family:'DM Sans',sans-serif;font-weight:700;">Bold 700</span>
+
+        <!-- Specimen 2: DM Sans -->
+        <div class="type-specimen-card liquid-glass-card">
+          <div class="specimen-card-header">
+            <div>
+              <span class="specimen-badge">Secondary Body &amp; Data Typeface</span>
+              <h3 class="specimen-family-name">DM Sans</h3>
+              <p class="specimen-designer">Humanist Geometric • Designed by Colophon Foundry</p>
+            </div>
+            <a href="https://fonts.google.com/specimen/DM+Sans" target="_blank" rel="noopener" class="specimen-external-link" title="Open Google Fonts">Google Fonts ↗</a>
           </div>
-          <p class="specimen-use">Body Copy, Tables, Advisory Metrics, Metadata</p>
+
+          <div class="specimen-large-glyph">
+            <span class="glyph-char" style="font-family:'DM Sans';">Gg</span>
+            <span class="glyph-preview-string" style="font-family:'DM Sans';">advisory data</span>
+          </div>
+
+          <div class="specimen-weights-strip">
+            <div class="weight-cell"><span class="w-label">Regular 400</span><span class="w-sample" style="font-family:'DM Sans';font-weight:400;">Long-form reading clarity</span></div>
+            <div class="weight-cell"><span class="w-label">Medium 500</span><span class="w-sample" style="font-family:'DM Sans';font-weight:500;">Financial metadata &amp; captions</span></div>
+            <div class="weight-cell"><span class="w-label">Bold 700</span><span class="w-sample" style="font-family:'DM Sans';font-weight:700;">Data table headers &amp; key metrics</span></div>
+          </div>
+
+          <div class="specimen-character-set">
+            <span class="char-label">Advisory Table Sample</span>
+            <div class="chars-display advisory-table-sample" style="font-family:'DM Sans';">
+              <div class="table-sample-row"><span>Q3 ARR Target</span><strong style="color:var(--blue);">+34.8%</strong></div>
+              <div class="table-sample-row"><span>Operating Leverage</span><strong>2.4x</strong></div>
+              <div class="table-sample-row"><span>Enterprise Valuation</span><strong>$48,500,000</strong></div>
+            </div>
+          </div>
+
+          <div class="specimen-usage-meta">
+            <span class="meta-item"><strong>Primary Role:</strong> Body copy, advisory reports, data tables, metadata tags</span>
+            <span class="meta-item"><strong>Digital Fallback:</strong> <code>DM Sans, Arial, system-ui, sans-serif</code></span>
+          </div>
         </div>
       </div>
 
-      <!-- Type hierarchy -->
-      <h3 class="subsection-title">Type Hierarchy</h3>
-      <div class="type-hierarchy" id="type-hierarchy">
-        <!-- Populated by JS -->
+      <!-- Typographic Hierarchy Ladder & Implementation Rules -->
+      <div class="type-hierarchy-container liquid-glass-card" style="margin-top:48px;">
+        <div class="hierarchy-header">
+          <div class="hierarchy-title-group">
+            <span class="pill-mini">Master Guideline Scale</span>
+            <h3 class="subsection-title">Typographic Hierarchy &amp; Metrics Ladder</h3>
+          </div>
+          <p class="hierarchy-desc">Engineered proportional rhythm ensuring high scanning velocity and effortless visual structure.</p>
+        </div>
+
+        <div class="type-hierarchy-table-wrapper">
+          <div class="type-hierarchy" id="type-hierarchy">
+            <!-- Populated with rich liquid glass hierarchy rows -->
+          </div>
+        </div>
       </div>
 
-      <!-- Typography Studio -->
-      <div class="type-studio card" style="margin-top:48px;">
-        <div class="studio-header">
-          <h3 class="card-title">Live Typography Studio</h3>
-          <p style="color:var(--fg-muted);font-size:14px;">Test client headlines and pitch proposals in authentic brand typography</p>
+      <!-- Interactive Liquid Glass Typography Studio with Presets -->
+      <div class="type-studio-container liquid-glass-card" style="margin-top:48px;">
+        <div class="studio-top-bar">
+          <div>
+            <span class="pill-mini">Interactive Prototyper</span>
+            <h3 class="card-title">Liquid Glass Typography Studio</h3>
+            <p style="color:var(--fg-muted);font-size:14px;margin-top:4px;">Test proposal copy, executive slide headers, or advisory metrics with live typographic metrics.</p>
+          </div>
+          
+          <!-- Preset buttons for 1-click styling -->
+          <div class="studio-presets-dock" id="studio-presets-dock">
+            <span class="presets-label">Presets:</span>
+            <button class="preset-pill active" data-preset="h1">H1 Pitch Title</button>
+            <button class="preset-pill" data-preset="h2">H2 Executive Summary</button>
+            <button class="preset-pill" data-preset="metric">Key Metric ($48M)</button>
+            <button class="preset-pill" data-preset="body">Advisory Body</button>
+            <button class="preset-pill" data-preset="caption">Caption Spec</button>
+          </div>
         </div>
-        <div class="studio-controls">
+
+        <!-- Studio Control Surface -->
+        <div class="studio-controls-surface">
           <div class="ctrl-group">
-            <label class="ctrl-label">Font Family</label>
+            <label class="ctrl-label" for="studio-font">Font Family</label>
             <select id="studio-font" class="studio-select" aria-label="Select font family">
-              <option value="'Manrope', sans-serif">Manrope (Primary)</option>
-              <option value="'DM Sans', sans-serif">DM Sans (Secondary)</option>
+              <option value="'Manrope', sans-serif">Manrope (Primary Display)</option>
+              <option value="'DM Sans', sans-serif">DM Sans (Secondary Body)</option>
             </select>
           </div>
+
           <div class="ctrl-group">
-            <label class="ctrl-label">Font Weight</label>
+            <label class="ctrl-label" for="studio-weight">Font Weight</label>
             <select id="studio-weight" class="studio-select" aria-label="Select font weight">
               <option value="300">Light 300</option>
               <option value="400">Regular 400</option>
@@ -471,26 +745,52 @@
               <option value="800">ExtraBold 800</option>
             </select>
           </div>
+
           <div class="ctrl-group">
-            <label class="ctrl-label">Size: <span id="studio-size-val">32</span>px</label>
-            <input type="range" id="studio-size" min="14" max="96" value="32" class="slider" aria-label="Font size" />
+            <label class="ctrl-label">Size: <span id="studio-size-val">48</span>px</label>
+            <input type="range" id="studio-size" min="12" max="96" value="48" class="slider" aria-label="Font size" />
           </div>
+
           <div class="ctrl-group">
-            <label class="ctrl-label">Tracking: <span id="studio-tracking-val">0</span>em</label>
-            <input type="range" id="studio-tracking" min="-5" max="20" value="0" step="1" class="slider" aria-label="Letter spacing" />
+            <label class="ctrl-label">Tracking: <span id="studio-tracking-val">-0.02</span>em</label>
+            <input type="range" id="studio-tracking" min="-5" max="20" value="-2" step="1" class="slider" aria-label="Letter spacing" />
           </div>
+
           <div class="ctrl-group">
-            <label class="ctrl-label">Background</label>
+            <label class="ctrl-label">Line Height: <span id="studio-lh-val">110</span>%</label>
+            <input type="range" id="studio-lh" min="100" max="200" value="110" step="5" class="slider" aria-label="Line height" />
+          </div>
+
+          <div class="ctrl-group">
+            <label class="ctrl-label">Ground Canvas</label>
             <div class="radio-tabs" id="studio-bg-tabs" role="group" aria-label="Preview background">
-              <button class="radio-tab active" data-bg="navy" style="background:#0B1F3A;color:#F5F1E8;">Navy</button>
-              <button class="radio-tab" data-bg="ivory" style="background:#F5F1E8;color:#0B1F3A;">Ivory</button>
-              <button class="radio-tab" data-bg="blue" style="background:#2D6BFF;color:#fff;">Blue</button>
+              <button class="radio-tab active" data-bg="navy">Deep Navy</button>
+              <button class="radio-tab" data-bg="ivory">Warm Ivory</button>
+              <button class="radio-tab" data-bg="blue">Electric Blue</button>
             </div>
           </div>
         </div>
-        <div class="studio-preview" id="studio-preview">
-          <div class="studio-preview-inner" id="studio-preview-inner" contenteditable="true" aria-label="Editable typography preview">
-            Clarity in complexity.
+
+        <!-- Studio Live Canvas & Code Generator -->
+        <div class="studio-canvas-layout">
+          <div class="studio-preview-frame" id="studio-preview">
+            <div class="studio-preview-inner" id="studio-preview-inner" contenteditable="true" spellcheck="false" aria-label="Editable typography preview">
+              Clarity in complexity.
+            </div>
+            <div class="preview-canvas-hint">Click text to edit in real time</div>
+          </div>
+
+          <!-- Live CSS Generator Output -->
+          <div class="studio-code-card">
+            <div class="code-card-header">
+              <span class="code-label">Generated CSS Token</span>
+              <button class="btn-copy-code" id="btn-copy-type-css" title="Copy CSS to clipboard">Copy CSS</button>
+            </div>
+            <pre class="code-output" id="type-css-output"><code>font-family: 'Manrope', sans-serif;
+font-weight: 700;
+font-size: 48px;
+line-height: 1.1;
+letter-spacing: -0.02em;</code></pre>
           </div>
         </div>
       </div>
