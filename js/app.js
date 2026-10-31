@@ -1,6 +1,6 @@
 /* ============================================================
    NORTHSTAR ADVISORY — Brand Guidelines Site
-   app.js v1.0 — All interactivity
+   app.js v2.0 — Enhanced with Real SVG Assets & Mobile Optimization
    ============================================================ */
 
 (function () {
@@ -9,7 +9,7 @@
   const DATA = window.NORTHSTAR_DATA;
 
   /* ============================================================
-     UTILITY
+     UTILITY HELPERS
   ============================================================ */
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $$(sel, ctx) { return [...(ctx || document).querySelectorAll(sel)]; }
@@ -41,8 +41,9 @@
       toast.setAttribute('aria-live', 'polite');
       toast.style.cssText = `
         position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(60px);
-        background:var(--blue);color:#fff;padding:10px 20px;border-radius:4px;
-        font-family:var(--font-body);font-size:14px;z-index:9999;
+        background:var(--blue);color:#fff;padding:12px 24px;border-radius:6px;
+        font-family:var(--font-body);font-size:14px;font-weight:600;z-index:99999;
+        box-shadow:0 8px 24px rgba(0,0,0,0.5), 0 0 20px rgba(45,107,255,0.4);
         transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),opacity 0.3s;
         opacity:0;pointer-events:none;
       `;
@@ -55,7 +56,7 @@
     toast._timer = setTimeout(() => {
       toast.style.transform = 'translateX(-50%) translateY(60px)';
       toast.style.opacity = '0';
-    }, 2200);
+    }, 2400);
   }
 
   /* ============================================================
@@ -80,12 +81,67 @@
     isDark = dark;
     document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
     if (themeToggle) themeToggle.textContent = dark ? '☀️' : '🌙';
-    // update playground stage bg
     updatePlayground();
   }
 
   if (themeToggle) {
     themeToggle.addEventListener('click', () => applyTheme(!isDark));
+  }
+
+  /* ============================================================
+     MOBILE NAVIGATION DRAWER
+  ============================================================ */
+  const mobileToggle = $('#mobile-toggle');
+  const mobileDrawer = $('#mobile-drawer');
+  const mobileClose = $('#mobile-close');
+  const mobileBackdrop = $('#mobile-backdrop');
+  const mLinks = $$('.m-link');
+  const mCmdOpen = $('#m-cmd-open');
+  const mThemeToggle = $('#m-theme-toggle');
+
+  function openMobileDrawer() {
+    if (mobileDrawer) mobileDrawer.classList.add('open');
+    if (mobileBackdrop) mobileBackdrop.classList.add('open');
+    if (mobileToggle) {
+      mobileToggle.classList.add('active');
+      mobileToggle.setAttribute('aria-expanded', 'true');
+    }
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileDrawer() {
+    if (mobileDrawer) mobileDrawer.classList.remove('open');
+    if (mobileBackdrop) mobileBackdrop.classList.remove('open');
+    if (mobileToggle) {
+      mobileToggle.classList.remove('active');
+      mobileToggle.setAttribute('aria-expanded', 'false');
+    }
+    document.body.style.overflow = '';
+  }
+
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', () => {
+      if (mobileDrawer && mobileDrawer.classList.contains('open')) closeMobileDrawer();
+      else openMobileDrawer();
+    });
+  }
+
+  if (mobileClose) mobileClose.addEventListener('click', closeMobileDrawer);
+  if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMobileDrawer);
+  mLinks.forEach(l => l.addEventListener('click', closeMobileDrawer));
+
+  if (mCmdOpen) {
+    mCmdOpen.addEventListener('click', () => {
+      closeMobileDrawer();
+      openCmdPalette();
+    });
+  }
+
+  if (mThemeToggle) {
+    mThemeToggle.addEventListener('click', () => {
+      applyTheme(!isDark);
+      closeMobileDrawer();
+    });
   }
 
   /* ============================================================
@@ -107,60 +163,9 @@
         });
       }
     });
-  }, { rootMargin: '-40% 0px -55% 0px' });
+  }, { rootMargin: '-30% 0px -60% 0px' });
 
   sections.forEach(s => observer.observe(s));
-
-  /* ============================================================
-     REVEAL ON SCROLL (Intersection Observer)
-  ============================================================ */
-  const revealItems = $$('.card, .gallery-item, .intro-card, .application-card, .type-specimen');
-  const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        revealObs.unobserve(entry.target);
-      }
-    });
-  }, { rootMargin: '0px 0px -60px 0px' });
-
-  revealItems.forEach(el => {
-    el.classList.add('will-reveal');
-    revealObs.observe(el);
-  });
-
-  // Add CSS for reveal
-  const revealStyle = document.createElement('style');
-  revealStyle.textContent = `
-    .will-reveal { opacity:0; transform:translateY(16px); transition:opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1); }
-    .will-reveal.revealed { opacity:1; transform:none; }
-  `;
-  document.head.appendChild(revealStyle);
-
-  /* ============================================================
-     HERO LOGO ANIMATION (stroke draw-on)
-  ============================================================ */
-  function initHeroAnimation() {
-    const segs = $$('#logo-anim .anim-seg');
-    segs.forEach(seg => {
-      const len = seg.getTotalLength ? seg.getTotalLength() : 100;
-      seg.style.strokeDasharray = len;
-      seg.style.strokeDashoffset = len;
-      seg.style.transition = 'none';
-    });
-
-    setTimeout(() => {
-      segs.forEach((seg, i) => {
-        const delay = 100 + i * 80;
-        const dur = 350;
-        seg.style.transition = `stroke-dashoffset ${dur}ms cubic-bezier(0.22,1,0.36,1) ${delay}ms`;
-        seg.style.strokeDashoffset = '0';
-      });
-    }, 400);
-  }
-
-  // Wait for fonts + layout
-  document.fonts.ready.then(initHeroAnimation);
 
   /* ============================================================
      POPULATE — VALUES GRID
@@ -217,7 +222,7 @@
   }
 
   /* ============================================================
-     LOGO PLAYGROUND
+     LOGO PLAYGROUND — POWERED BY GENUINE SVG ASSETS
   ============================================================ */
   const logoImg = $('#playground-logo');
   const playgroundStage = $('#playground-stage');
@@ -227,54 +232,109 @@
   const clearspaceToggle = $('#clearspace-toggle');
   const logoDownload = $('#logo-download');
 
-  let currentLogoType = 'logo-primary-horizontal';
+  let currentLogoType = 'primary-logo';
   let currentGround = 'navy';
-  const groundColors = { navy: '#0B1F3A', ivory: '#F5F1E8', white: '#FFFFFF', blue: '#2D6BFF' };
-  const groundVariants = { navy: 'ivory', ivory: 'navy', white: 'navy', blue: 'ivory' };
 
-  function getLogoSrc(type, ground) {
-    const variant = groundVariants[ground] || 'ivory';
-    if (type === 'logomark' || type === 'wordmark') {
-      return `assets/logos/${type}-${variant}.svg`;
+  const groundColors = {
+    navy: '#0B1F3A',
+    ivory: '#F5F1E8',
+    white: '#FFFFFF',
+    blue: '#2D6BFF'
+  };
+
+  const logoModels = {
+    'primary-logo': {
+      navy: 'assets/logos/Primary Logo.svg',
+      ivory: 'assets/logos/Full logo.svg',
+      white: 'assets/logos/Full logo 1.svg',
+      blue: 'assets/logos/Primary Logo.svg',
+      default: 'assets/logos/Primary Logo.svg',
+      downloadName: 'Northstar_Advisory_Primary_Logo.svg'
+    },
+    'primary-mark': {
+      navy: 'assets/logos/Primary Logomark.svg',
+      ivory: 'assets/logos/Logomark 1.svg',
+      white: 'assets/logos/Logomark 2.svg',
+      blue: 'assets/logos/Primary Logomark.svg',
+      default: 'assets/logos/Primary Logomark.svg',
+      downloadName: 'Northstar_Advisory_Primary_Logomark.svg'
+    },
+    'ivory-logo': {
+      navy: 'assets/logos/Full logo.svg',
+      ivory: 'assets/logos/Full logo.svg',
+      white: 'assets/logos/Full logo.svg',
+      blue: 'assets/logos/Full logo.svg',
+      default: 'assets/logos/Full logo.svg',
+      downloadName: 'Northstar_Advisory_Full_Logo_Ivory.svg'
+    },
+    'navy-blue-logo': {
+      navy: 'assets/logos/Full logo 2.svg',
+      ivory: 'assets/logos/Full logo 2.svg',
+      white: 'assets/logos/Full logo 2.svg',
+      blue: 'assets/logos/Full logo 2.svg',
+      default: 'assets/logos/Full logo 2.svg',
+      downloadName: 'Northstar_Advisory_Full_Logo_Navy_Blue.svg'
+    },
+    'navy-white-logo': {
+      navy: 'assets/logos/Full Logo 3.svg',
+      ivory: 'assets/logos/Full Logo 3.svg',
+      white: 'assets/logos/Full Logo 3.svg',
+      blue: 'assets/logos/Full Logo 3.svg',
+      default: 'assets/logos/Full Logo 3.svg',
+      downloadName: 'Northstar_Advisory_Full_Logo_Minimal_White.svg'
+    },
+    'stacked-logo': {
+      navy: 'assets/logos/logo 4.svg',
+      ivory: 'assets/logos/logo 3.svg',
+      white: 'assets/logos/logo 2.svg',
+      blue: 'assets/logos/logo 5.svg',
+      default: 'assets/logos/logo 4.svg',
+      downloadName: 'Northstar_Advisory_Corporate_Stacked.svg'
     }
-    return `assets/logos/${type}-${variant}.svg`;
-  }
+  };
 
   function updatePlayground() {
     if (!logoImg) return;
-    const src = getLogoSrc(currentLogoType, currentGround);
+    const model = logoModels[currentLogoType] || logoModels['primary-logo'];
+    const src = model[currentGround] || model.default;
+
     logoImg.src = src;
-    logoImg.alt = `Northstar Advisory ${currentLogoType.replace(/-/g, ' ')} on ${currentGround}`;
+    logoImg.alt = `Northstar Advisory ${currentLogoType} on ${currentGround}`;
+
     if (playgroundStage) {
-      playgroundStage.style.background = groundColors[currentGround] || '#0B1F3A';
+      playgroundStage.style.backgroundColor = groundColors[currentGround] || '#0B1F3A';
     }
-    const size = scaleSlider ? parseInt(scaleSlider.value) : 240;
+
+    const size = scaleSlider ? parseInt(scaleSlider.value) : 260;
     logoImg.style.width = size + 'px';
-    logoImg.style.maxWidth = 'none';
+    logoImg.style.maxWidth = '90%';
     logoImg.style.height = 'auto';
 
-    // Clear space
+    // Clear space overlay
     if (clearspaceBox && clearspaceToggle) {
       if (clearspaceToggle.checked) {
-        const markH = Math.max(size * 0.3, 20); // approx 30% of logo width is mark height
+        const markH = Math.max(size * 0.28, 24);
         clearspaceBox.style.padding = markH + 'px';
-        clearspaceBox.style.border = '1px dashed rgba(45,107,255,0.6)';
+        clearspaceBox.style.border = '1.5px dashed rgba(45,107,255,0.7)';
         clearspaceBox.style.display = 'inline-block';
       } else {
         clearspaceBox.style.display = 'none';
       }
     }
 
-    // Download button target
     if (logoDownload) {
       logoDownload.dataset.src = src;
+      logoDownload.dataset.filename = model.downloadName || 'Northstar_Advisory_Logo.svg';
     }
   }
 
   // Logo type tabs
   $$('#logo-type-tabs .radio-tab').forEach(btn => {
     btn.addEventListener('click', () => {
-      $$('#logo-type-tabs .radio-tab').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+      $$('#logo-type-tabs .radio-tab').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
       btn.setAttribute('aria-pressed', 'true');
       currentLogoType = btn.dataset.type;
@@ -285,7 +345,10 @@
   // Ground tabs
   $$('#logo-ground-tabs .radio-tab').forEach(btn => {
     btn.addEventListener('click', () => {
-      $$('#logo-ground-tabs .radio-tab').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+      $$('#logo-ground-tabs .radio-tab').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
       btn.setAttribute('aria-pressed', 'true');
       currentGround = btn.dataset.ground;
@@ -308,17 +371,19 @@
   // Download SVG
   if (logoDownload) {
     logoDownload.addEventListener('click', () => {
-      const src = logoImg ? logoImg.src : '';
+      const src = logoDownload.dataset.src || (logoImg ? logoImg.src : '');
+      const filename = logoDownload.dataset.filename || 'Northstar_Advisory_Logo.svg';
       if (!src) return;
       const a = document.createElement('a');
       a.href = src;
-      a.download = src.split('/').pop();
+      a.download = filename;
+      document.body.appendChild(a);
       a.click();
-      showToast('SVG downloaded');
+      document.body.removeChild(a);
+      showToast('Downloaded ' + filename);
     });
   }
 
-  // Initial render
   updatePlayground();
 
   /* ============================================================
@@ -410,12 +475,12 @@
         <div class="th-sample" style="
           font-family:${h.font.includes('Manrope') ? "'Manrope', sans-serif" : "'DM Sans', sans-serif"};
           font-weight:${h.font.includes('Bold') ? 700 : h.font.includes('Semi') ? 600 : h.font.includes('Medium') ? 500 : h.font.includes('Light') ? 300 : 400};
-          font-size:clamp(14px, ${h.size.split('–')[0].trim()}, ${h.size.split('–')[1] || h.size.split('–')[0].trim()});
+          font-size:clamp(15px, ${h.size.split('–')[0].trim()}, ${h.size.split('–')[1] || h.size.split('–')[0].trim()});
           line-height:${h.lh};
           letter-spacing:${h.tracking || '0'};
         ">The direction of clarity.</div>
         <div class="th-spec">
-          <span>${h.font}</span>
+          <span><strong>${h.font}</strong></span>
           <span>${h.size}</span>
           <span>LH ${h.lh}</span>
           ${h.tracking ? `<span>+${h.tracking} tracking</span>` : ''}
@@ -443,7 +508,7 @@
   function updateStudio() {
     if (!studioPreviewInner) return;
     const font = studioFont ? studioFont.value : "'Manrope', sans-serif";
-    const weight = studioWeight ? studioWeight.value : '600';
+    const weight = studioWeight ? studioWeight.value : '700';
     const size = studioSize ? studioSize.value : '32';
     const tracking = studioTracking ? (parseInt(studioTracking.value) / 100).toFixed(2) : '0';
 
@@ -554,16 +619,6 @@
     });
   });
 
-  // Touch swipe for lightbox
-  let touchStartX = 0;
-  if (lightbox) {
-    lightbox.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-    lightbox.addEventListener('touchend', e => {
-      const dx = e.changedTouches[0].clientX - touchStartX;
-      if (Math.abs(dx) > 50) lbNavigate(dx < 0 ? 1 : -1);
-    });
-  }
-
   /* ============================================================
      BRAND VOICE — WORD LISTS + COPY ANALYZER
   ============================================================ */
@@ -591,7 +646,6 @@
   function analyzeCopy() {
     if (!copyInput || !DATA.voice) return;
     const text = copyInput.value.toLowerCase();
-    const words = text.split(/\s+/).filter(Boolean);
 
     if (!text.trim()) {
       if (analyzerResults) analyzerResults.innerHTML = '<div class="results-empty">Start typing to analyze voice compliance…</div>';
@@ -623,15 +677,15 @@
 
     let html = '';
     if (foundBanned.length > 0) {
-      html += `<div class="result-group"><div class="result-label result-bad">✕ Banned words found (−${foundBanned.length * 18} pts)</div>`;
+      html += `<div class="result-group"><div class="result-label result-bad">✕ Banned buzzwords found (−${foundBanned.length * 18} pts)</div>`;
       html += foundBanned.map(w => `<span class="word-tag banned-tag">${w}</span>`).join('') + '</div>';
     }
     if (foundApproved.length > 0) {
-      html += `<div class="result-group"><div class="result-label result-good">✓ On-brand language (+${foundApproved.length * 4} pts)</div>`;
+      html += `<div class="result-group"><div class="result-label result-good">✓ On-brand vocabulary (+${foundApproved.length * 4} pts)</div>`;
       html += foundApproved.map(w => `<span class="word-tag approved-tag">${w}</span>`).join('') + '</div>';
     }
     if (foundBanned.length === 0 && foundApproved.length === 0) {
-      html = '<div class="results-empty">No banned words detected — looking good. Score: ' + score + '</div>';
+      html = '<div class="results-empty">No banned words detected. Score: ' + score + '</div>';
     }
 
     if (analyzerResults) analyzerResults.innerHTML = html;
@@ -683,22 +737,21 @@
   updateSocialPost();
 
   /* ============================================================
-     MOTION SIMULATOR
+     MOTION SIMULATOR — GENUINE STAR MARK DRAW-ON
   ============================================================ */
   function initMotionAnimation(svgId) {
     const segs = $$(`#${svgId} .motion-seg`);
     segs.forEach(seg => {
-      const len = seg.getTotalLength ? seg.getTotalLength() : 60;
+      const len = seg.getTotalLength ? seg.getTotalLength() : 800;
       seg.style.strokeDasharray = len;
       seg.style.strokeDashoffset = len;
       seg.style.transition = 'none';
-      seg.style.opacity = '1';
     });
 
     requestAnimationFrame(() => {
       segs.forEach((seg, i) => {
-        const delay = i * 100;
-        const dur = 350;
+        const delay = i * 140;
+        const dur = 400;
         setTimeout(() => {
           seg.style.transition = `stroke-dashoffset ${dur}ms cubic-bezier(0.22,1,0.36,1)`;
           seg.style.strokeDashoffset = '0';
@@ -712,7 +765,6 @@
     replayMotion.addEventListener('click', () => initMotionAnimation('motion-logo-svg'));
   }
 
-  // Auto-play when section enters view
   const motionSection = $('#motion-system');
   if (motionSection) {
     const motionObs = new IntersectionObserver(entries => {
@@ -731,7 +783,7 @@
     const lines = $$('#text-reveal-demo .reveal-line-item');
     lines.forEach(line => {
       line.style.opacity = '0';
-      line.style.transform = 'translateY(10px)';
+      line.style.transform = 'translateY(12px)';
       line.style.transition = 'none';
     });
     lines.forEach((line, i) => {
@@ -739,7 +791,7 @@
         line.style.transition = 'opacity 0.4s cubic-bezier(0.22,1,0.36,1), transform 0.4s cubic-bezier(0.22,1,0.36,1)';
         line.style.opacity = '1';
         line.style.transform = 'none';
-      }, 300 + i * 120);
+      }, 250 + i * 110);
     });
   }
 
@@ -752,7 +804,7 @@
     const textRevealObs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
-          setTimeout(initTextReveal, 600);
+          setTimeout(initTextReveal, 550);
           textRevealObs.unobserve(motionSection);
         }
       });
@@ -761,7 +813,7 @@
   }
 
   /* ============================================================
-     42-PAGE INSPECTOR
+     42-PAGE SLIDE INSPECTOR (DESKTOP & TOUCH MOBILE)
   ============================================================ */
   const inspectorImg = $('#inspector-img');
   const inspectorCounter = $('#inspector-counter');
@@ -771,6 +823,7 @@
   const inspectorThumbs = $('#inspector-thumbnails');
   const inspPrev = $('#insp-prev');
   const inspNext = $('#insp-next');
+  const inspectorStage = $('#inspector-stage');
 
   let currentPage = 0;
 
@@ -813,7 +866,7 @@
         inspectorImg.src = page.image;
         inspectorImg.alt = `Brand guidelines page ${page.page} — ${page.title}`;
         inspectorImg.style.opacity = '1';
-      }, 150);
+      }, 120);
     }
 
     if (inspectorCounter) inspectorCounter.textContent = `Page ${page.page} of ${DATA.pages.length}`;
@@ -822,20 +875,49 @@
     if (inspectorSectionTag) inspectorSectionTag.textContent = page.section;
 
     // Update thumbnails
-    $$('.insp-thumb').forEach((t, i) => {
+    const thumbs = $$('.insp-thumb');
+    thumbs.forEach((t, i) => {
       const active = i === idx;
       t.classList.toggle('active', active);
       t.setAttribute('aria-selected', active);
-      if (active) t.scrollIntoView({ block: 'nearest', inline: 'nearest' });
     });
 
-    // Update prev/next disabled state
+    if (thumbs[idx]) {
+      thumbs[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+
     if (inspPrev) inspPrev.disabled = idx === 0;
     if (inspNext) inspNext.disabled = idx === DATA.pages.length - 1;
   }
 
   if (inspPrev) inspPrev.addEventListener('click', () => selectPage(currentPage - 1));
   if (inspNext) inspNext.addEventListener('click', () => selectPage(currentPage + 1));
+
+  // Mobile Touch Swipe for Inspector
+  if (inspectorStage) {
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    inspectorStage.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    inspectorStage.addEventListener('touchend', e => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const touchEndY = e.changedTouches[0].screenY;
+      const dx = touchEndX - touchStartX;
+      const dy = touchEndY - touchStartY;
+
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+        if (dx < 0) {
+          selectPage(currentPage + 1); // swipe left
+        } else {
+          selectPage(currentPage - 1); // swipe right
+        }
+      }
+    }, { passive: true });
+  }
 
   // Keyboard navigation for inspector
   document.addEventListener('keydown', (e) => {
@@ -848,34 +930,18 @@
         if (e.key === 'ArrowRight') { e.preventDefault(); selectPage(currentPage + 1); }
       }
     }
-    // ESC closes lightbox
     if (e.key === 'Escape') {
       if (lightbox && !lightbox.hidden) closeLightbox();
       if (!$('#cmd-palette').hidden) closeCmdPalette();
+      if (mobileDrawer && mobileDrawer.classList.contains('open')) closeMobileDrawer();
     }
   });
-
-  // Touch swipe for inspector
-  let inspTouchStart = 0;
-  const inspectorSection = $('#inspector');
-  if (inspectorSection) {
-    inspectorSection.addEventListener('touchstart', e => { inspTouchStart = e.touches[0].clientX; }, { passive: true });
-    inspectorSection.addEventListener('touchend', e => {
-      const dx = e.changedTouches[0].clientX - inspTouchStart;
-      if (Math.abs(dx) > 60) selectPage(currentPage + (dx < 0 ? 1 : -1));
-    });
-  }
 
   buildThumbnails();
   selectPage(0);
 
-  // Add CSS transition for inspector image
-  if (inspectorImg) {
-    inspectorImg.style.transition = 'opacity 0.15s ease';
-  }
-
   /* ============================================================
-     COMMAND PALETTE
+     COMMAND PALETTE (⌘K / Ctrl+K)
   ============================================================ */
   const cmdPalette = $('#cmd-palette');
   const cmdInput = $('#cmd-input');
@@ -885,29 +951,29 @@
 
   const cmdSections = [
     { label: '01 Brand Introduction', href: '#intro', icon: '◆' },
-    { label: '02 Brand Strategy', href: '#strategy', icon: '◇' },
-    { label: '03 Logo System', href: '#logo-system', icon: '★' },
-    { label: '04 Colour System', href: '#colour-system', icon: '⬤' },
-    { label: '05 Typography', href: '#typography', icon: 'Aa' },
-    { label: '06 Graphic Language', href: '#graphic-language', icon: '⋯' },
-    { label: '07 Photography', href: '#photography', icon: '⬜' },
-    { label: '08 Brand Voice', href: '#brand-voice', icon: '✦' },
-    { label: '09 Brand Applications', href: '#applications', icon: '▣' },
+    { label: '02 Brand Strategy & Pillars', href: '#strategy', icon: '◇' },
+    { label: '03 Logo System & Playground', href: '#logo-system', icon: '★' },
+    { label: '04 Colour System & Contrast Matrix', href: '#colour-system', icon: '⬤' },
+    { label: '05 Typography & Live Studio', href: '#typography', icon: 'Aa' },
+    { label: '06 Graphic Language & Patterns', href: '#graphic-language', icon: '⋯' },
+    { label: '07 Photography Direction', href: '#photography', icon: '⬜' },
+    { label: '08 Brand Voice & Copy Analyzer', href: '#brand-voice', icon: '✦' },
+    { label: '09 Brand Applications & Mockups', href: '#applications', icon: '▣' },
     { label: '10 Digital Brand System', href: '#digital-system', icon: '◉' },
     { label: '11 Motion Direction', href: '#motion-system', icon: '▷' },
     { label: '12 Brand Governance', href: '#governance', icon: '⊞' },
-    { label: '42-Page Slide Viewer', href: '#inspector', icon: '⧉' },
-    { label: 'Asset Downloads', href: '#assets-hub', icon: '↓' },
-    { label: 'Logo Playground', href: '#logo-system', icon: '🔧' },
-    { label: 'Copy Analyzer', href: '#brand-voice', icon: '✓' },
-    { label: 'Typography Studio', href: '#typography', icon: 'Aa' },
+    { label: '42-Page Slide Viewer', href: '#inspector', icon: '📄' },
+    { label: 'Brand Asset Downloads (ZIP / SVG)', href: '#assets-hub', icon: '📦' },
+    { label: 'Interactive Logo Playground', href: '#logo-system', icon: '🔧' },
+    { label: 'Interactive Copy Analyzer', href: '#brand-voice', icon: '✓' },
+    { label: 'Live Typography Studio', href: '#typography', icon: 'T' },
   ];
 
   function openCmdPalette() {
     if (!cmdPalette) return;
     cmdPalette.hidden = false;
     renderCmdResults('');
-    setTimeout(() => cmdInput && cmdInput.focus(), 50);
+    setTimeout(() => cmdInput && cmdInput.focus(), 60);
     document.body.style.overflow = 'hidden';
   }
 
@@ -926,14 +992,18 @@
         <span class="cmd-result-icon" aria-hidden="true">${s.icon}</span>
         <span>${s.label}</span>
       </li>
-    `).join('') || '<li class="cmd-no-results">No results found</li>';
+    `).join('') || '<li class="cmd-no-results">No brand sections matched your search</li>';
 
     $$('.cmd-result-item', cmdResults).forEach(item => {
       item.addEventListener('click', () => {
         closeCmdPalette();
         const href = item.dataset.href;
         const target = $(href);
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        if (target) {
+          const navH = 68;
+          const top = target.getBoundingClientRect().top + window.scrollY - navH;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
       });
     });
   }
@@ -951,7 +1021,6 @@
     });
   }
 
-  // Keyboard navigation within results
   if (cmdResults) {
     cmdResults.addEventListener('keydown', (e) => {
       const items = $$('.cmd-result-item', cmdResults);
@@ -964,9 +1033,8 @@
     });
   }
 
-  // ⌘K / Ctrl+K shortcut
   document.addEventListener('keydown', (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
       e.preventDefault();
       if (!cmdPalette || cmdPalette.hidden) openCmdPalette();
       else closeCmdPalette();
@@ -974,22 +1042,12 @@
   });
 
   /* ============================================================
-     HERO SCROLL HINT — fade on scroll
-  ============================================================ */
-  const scrollHint = $('.hero-scroll-hint');
-  if (scrollHint) {
-    window.addEventListener('scroll', () => {
-      scrollHint.style.opacity = window.scrollY > 60 ? '0' : '1';
-    }, { passive: true });
-  }
-
-  /* ============================================================
-     SMOOTH SCROLL for anchor links
+     SMOOTH SCROLL FOR ALL INTERNAL LINKS
   ============================================================ */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', (e) => {
       const href = a.getAttribute('href');
-      if (href === '#') return;
+      if (href === '#' || !href) return;
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
@@ -1000,32 +1058,7 @@
     });
   });
 
-  /* ============================================================
-     HERO — staggered reveal
-  ============================================================ */
-  const heroLines = $$('.hero-content .reveal-line');
-  heroLines.forEach((line, i) => {
-    line.style.opacity = '0';
-    line.style.transform = 'translateY(12px)';
-    setTimeout(() => {
-      line.style.transition = 'opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)';
-      line.style.opacity = '1';
-      line.style.transform = 'none';
-    }, 600 + i * 100);
-  });
-
-  const heroCta = $('.hero-cta');
-  if (heroCta) {
-    heroCta.style.opacity = '0';
-    heroCta.style.transform = 'translateY(12px)';
-    setTimeout(() => {
-      heroCta.style.transition = 'opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)';
-      heroCta.style.opacity = '1';
-      heroCta.style.transform = 'none';
-    }, 1000);
-  }
-
-  console.log('%c NORTHSTAR ADVISORY — Brand Guidelines v1.0 ', 'background:#0B1F3A;color:#2D6BFF;font-weight:bold;font-size:14px;padding:8px 16px;');
-  console.log('%c Identity by Lyko Artistry. Clarity in complexity. ', 'color:#F5F1E8;font-size:12px;');
+  console.log('%c NORTHSTAR ADVISORY — Brand Guidelines v2.0 ', 'background:#0B1F3A;color:#2D6BFF;font-weight:800;font-size:14px;padding:8px 16px;border-radius:4px;');
+  console.log('%c Identity design by Lyko Artistry. Clarity in complexity. ', 'color:#F5F1E8;font-size:12px;');
 
 })();
