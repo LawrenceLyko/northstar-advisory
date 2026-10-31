@@ -244,51 +244,51 @@
 
   const logoModels = {
     'primary-logo': {
-      navy: 'assets/logos/Primary Logo.svg',
-      ivory: 'assets/logos/Full logo.svg',
-      white: 'assets/logos/Full logo 1.svg',
-      blue: 'assets/logos/Primary Logo.svg',
-      default: 'assets/logos/Primary Logo.svg',
+      navy: 'assets/logos/primary-logo.svg',
+      ivory: 'assets/logos/full-logo-ivory.svg',
+      white: 'assets/logos/full-logo-white.svg',
+      blue: 'assets/logos/primary-logo.svg',
+      default: 'assets/logos/primary-logo.svg',
       downloadName: 'Northstar_Advisory_Primary_Logo.svg'
     },
     'primary-mark': {
-      navy: 'assets/logos/Primary Logomark.svg',
-      ivory: 'assets/logos/Logomark 1.svg',
-      white: 'assets/logos/Logomark 2.svg',
-      blue: 'assets/logos/Primary Logomark.svg',
-      default: 'assets/logos/Primary Logomark.svg',
+      navy: 'assets/logos/primary-logomark.svg',
+      ivory: 'assets/logos/logomark-ivory.svg',
+      white: 'assets/logos/logomark-white.svg',
+      blue: 'assets/logos/primary-logomark.svg',
+      default: 'assets/logos/primary-logomark.svg',
       downloadName: 'Northstar_Advisory_Primary_Logomark.svg'
     },
     'ivory-logo': {
-      navy: 'assets/logos/Full logo.svg',
-      ivory: 'assets/logos/Full logo.svg',
-      white: 'assets/logos/Full logo.svg',
-      blue: 'assets/logos/Full logo.svg',
-      default: 'assets/logos/Full logo.svg',
+      navy: 'assets/logos/full-logo-ivory.svg',
+      ivory: 'assets/logos/full-logo-ivory.svg',
+      white: 'assets/logos/full-logo-ivory.svg',
+      blue: 'assets/logos/full-logo-ivory.svg',
+      default: 'assets/logos/full-logo-ivory.svg',
       downloadName: 'Northstar_Advisory_Full_Logo_Ivory.svg'
     },
     'navy-blue-logo': {
-      navy: 'assets/logos/Full logo 2.svg',
-      ivory: 'assets/logos/Full logo 2.svg',
-      white: 'assets/logos/Full logo 2.svg',
-      blue: 'assets/logos/Full logo 2.svg',
-      default: 'assets/logos/Full logo 2.svg',
+      navy: 'assets/logos/full-logo-navy-blue.svg',
+      ivory: 'assets/logos/full-logo-navy-blue.svg',
+      white: 'assets/logos/full-logo-navy-blue.svg',
+      blue: 'assets/logos/full-logo-navy-blue.svg',
+      default: 'assets/logos/full-logo-navy-blue.svg',
       downloadName: 'Northstar_Advisory_Full_Logo_Navy_Blue.svg'
     },
     'navy-white-logo': {
-      navy: 'assets/logos/Full Logo 3.svg',
-      ivory: 'assets/logos/Full Logo 3.svg',
-      white: 'assets/logos/Full Logo 3.svg',
-      blue: 'assets/logos/Full Logo 3.svg',
-      default: 'assets/logos/Full Logo 3.svg',
+      navy: 'assets/logos/full-logo-navy-white.svg',
+      ivory: 'assets/logos/full-logo-navy-white.svg',
+      white: 'assets/logos/full-logo-navy-white.svg',
+      blue: 'assets/logos/full-logo-navy-white.svg',
+      default: 'assets/logos/full-logo-navy-white.svg',
       downloadName: 'Northstar_Advisory_Full_Logo_Minimal_White.svg'
     },
     'stacked-logo': {
-      navy: 'assets/logos/logo 4.svg',
-      ivory: 'assets/logos/logo 3.svg',
-      white: 'assets/logos/logo 2.svg',
-      blue: 'assets/logos/logo 5.svg',
-      default: 'assets/logos/logo 4.svg',
+      navy: 'assets/logos/logo-stacked-navy-blue.svg',
+      ivory: 'assets/logos/logo-stacked-light.svg',
+      white: 'assets/logos/logo-stacked-white.svg',
+      blue: 'assets/logos/logo-stacked-navy-white.svg',
+      default: 'assets/logos/logo-stacked-navy-blue.svg',
       downloadName: 'Northstar_Advisory_Corporate_Stacked.svg'
     }
   };
