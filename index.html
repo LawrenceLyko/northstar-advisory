@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Northstar Advisory — Brand Guidelines</title>
+  <meta name="description" content="Official Brand Guidelines & Identity System for Northstar Advisory — Strategic Business Consultancy. Clarity in complexity." />
+  <meta property="og:title" content="Northstar Advisory Brand Guidelines" />
+  <meta property="og:description" content="Interactive brand identity portal. Clarity in complexity." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="assets/logos/logomark-blue.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/supplements.css" />
+</head>
+<body>
+
+  <!-- Scroll Progress -->
+  <div id="scroll-progress"></div>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav id="nav" role="navigation" aria-label="Brand sections">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Northstar Advisory — Home">
+        <img src="assets/logos/logomark-blue.svg" alt="Northstar Advisory mark" />
+        <span style="font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:0.04em;color:var(--fg);">NORTHSTAR</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#intro">01 Intro</a></li>
+        <li><a href="#strategy">02 Strategy</a></li>
+        <li><a href="#logo-system">03 Logo</a></li>
+        <li><a href="#colour-system">04 Colour</a></li>
+        <li><a href="#typography">05 Type</a></li>
+        <li><a href="#graphic-language">06 Graphic</a></li>
+        <li><a href="#photography">07 Photo</a></li>
+        <li><a href="#brand-voice">08 Voice</a></li>
+        <li><a href="#applications">09 Apply</a></li>
+        <li><a href="#digital-system">10 Digital</a></li>
+        <li><a href="#motion-system">11 Motion</a></li>
+        <li><a href="#governance">12 Governance</a></li>
+        <li><a href="#inspector">Slide Viewer</a></li>
+        <li><a href="#assets-hub">Assets</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="cmd-trigger btn-icon" id="cmd-open" aria-label="Open command palette" title="Search (⌘K)">
+          <span>⌘K</span>
+        </button>
+        <button class="btn-icon" id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">☀️</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section id="hero" class="hero" aria-label="Hero">
+    <div class="hero-pattern" aria-hidden="true">
+      <img src="assets/patterns/pattern-dotgrid.svg" alt="" />
+    </div>
+    <div class="hero-inner">
+      <div class="hero-mark" id="hero-mark" aria-hidden="true">
+        <svg id="logo-anim" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Directional star — animated stroke draw-on -->
+          <g fill="none" stroke="#2D6BFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Outer ring arc segments -->
+            <path class="anim-seg" d="M80,20 A60,60 0 0 1 140,80" />
+            <path class="anim-seg" d="M140,80 A60,60 0 0 1 80,140" />
+            <path class="anim-seg" d="M80,140 A60,60 0 0 1 20,80" />
+            <path class="anim-seg" d="M20,80 A60,60 0 0 1 80,20" />
+            <!-- Inner directional spokes -->
+            <line class="anim-seg" x1="80" y1="20" x2="80" y2="80" />
+            <line class="anim-seg" x1="140" y1="80" x2="80" y2="80" />
+            <line class="anim-seg" x1="80" y1="140" x2="80" y2="80" />
+            <line class="anim-seg" x1="20" y1="80" x2="80" y2="80" />
+            <!-- Diagonal cuts -->
+            <line class="anim-seg" x1="80" y1="20" x2="140" y2="80" />
+            <line class="anim-seg" x1="140" y1="80" x2="80" y2="140" />
+            <!-- Accent circle -->
+            <circle class="anim-seg" cx="80" cy="80" r="10" fill="#2D6BFF" stroke="none" />
+          </g>
+        </svg>
+      </div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Brand Guidelines v1.0</p>
+        <h1 class="hero-title reveal-line">Northstar Advisory</h1>
+        <p class="hero-tagline reveal-line">Clarity in complexity.</p>
+        <p class="hero-descriptor reveal-line">Strategic Business Consultancy</p>
+        <div class="hero-cta">
+          <a href="#intro" class="btn-primary">Explore Guidelines</a>
+          <a href="#inspector" class="btn-secondary">42-Page Slide Viewer</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       01 BRAND INTRODUCTION
+  ============================================================ -->
+  <section id="intro" class="section" aria-labelledby="intro-title">
+    <div class="container">
+      <span class="section-label">01 — Brand Introduction</span>
+      <h2 class="section-title" id="intro-title">Who We Are</h2>
+      <p class="section-subtitle">Northstar Advisory is a strategic business consultancy that converts ambiguity into structured growth plans. We work with growth-stage ventures to build the frameworks, systems, and strategies that make scale possible.</p>
+
+      <div class="brand-intro-grid">
+        <div class="intro-card card">
+          <div class="intro-card-icon" aria-hidden="true">◆</div>
+          <h3>Mission</h3>
+          <p>To give growing businesses the clarity, structure, and confidence to scale without losing what made them work in the first place.</p>
+        </div>
+        <div class="intro-card card">
+          <div class="intro-card-icon" aria-hidden="true">◇</div>
+          <h3>Vision</h3>
+          <p>A future where every ambitious business, regardless of size, has access to the same calibre of strategic counsel once reserved for large corporations.</p>
+        </div>
+        <div class="intro-card card">
+          <div class="intro-card-icon" aria-hidden="true">▲</div>
+          <h3>Brand Promise</h3>
+          <p>"We turn complexity into a plan you can act on this quarter."</p>
+        </div>
+        <div class="intro-card card">
+          <div class="intro-card-icon" aria-hidden="true">★</div>
+          <h3>Brand Personality</h3>
+          <p>The trusted senior advisor — composed, precise, direct, quietly confident. Speaks like someone who has seen the pattern before and can shortcut you to the right answer.</p>
+        </div>
+      </div>
+
+      <div class="values-section">
+        <h3 class="subsection-title">Core Values</h3>
+        <div class="values-grid" id="values-grid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       02 BRAND STRATEGY
+  ============================================================ -->
+  <section id="strategy" class="section" aria-labelledby="strategy-title">
+    <div class="container">
+      <span class="section-label">02 — Brand Strategy</span>
+      <h2 class="section-title" id="strategy-title">Strategic Foundation</h2>
+      <p class="section-subtitle">The framework that defines how Northstar Advisory positions itself, communicates its differentiation, and earns lasting trust.</p>
+
+      <div class="grid-2" style="margin-bottom:64px;">
+        <div class="card">
+          <h3 class="card-title">Unique Value Proposition</h3>
+          <p>Boutique alternative to the Big Four — startup speed with enterprise rigour. We embed inside leadership teams and build frameworks that outlast the engagement.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Target Audience</h3>
+          <p>Founders &amp; leadership teams of 10–250 employee growth-stage ventures who have outgrown ad hoc decision-making and need enterprise-calibre systems without enterprise overhead.</p>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">Brand Pillars</h3>
+      <div class="pillars-grid" id="pillars-grid">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="tov-section">
+        <h3 class="subsection-title" style="margin-top:64px;">Tone of Voice Spectrum</h3>
+        <p style="color:var(--fg-muted);margin-bottom:32px;font-size:15px;">Where Northstar Advisory sits on each communication spectrum (marker = brand position).</p>
+        <div class="tov-sliders" id="tov-sliders">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       03 LOGO SYSTEM
+  ============================================================ -->
+  <section id="logo-system" class="section" aria-labelledby="logo-title">
+    <div class="container">
+      <span class="section-label">03 — Logo System</span>
+      <h2 class="section-title" id="logo-title">Logo System</h2>
+      <p class="section-subtitle">The Northstar Advisory mark is an abstract directional star — a circular form built from geometric line segments suggesting clarity, direction, and precision.</p>
+
+      <!-- Logo Playground -->
+      <div class="playground-shell">
+        <div class="playground-label">Interactive Logo Playground</div>
+        <div class="playground-controls">
+          <div class="ctrl-group">
+            <label class="ctrl-label">Logo Type</label>
+            <div class="radio-tabs" id="logo-type-tabs" role="group" aria-label="Logo type">
+              <button class="radio-tab active" data-type="logo-primary-horizontal" aria-pressed="true">Horizontal</button>
+              <button class="radio-tab" data-type="logo-secondary-stacked" aria-pressed="false">Stacked</button>
+              <button class="radio-tab" data-type="logomark" aria-pressed="false">Mark Only</button>
+              <button class="radio-tab" data-type="wordmark" aria-pressed="false">Wordmark</button>
+            </div>
+          </div>
+          <div class="ctrl-group">
+            <label class="ctrl-label">Ground Colour</label>
+            <div class="radio-tabs" id="logo-ground-tabs" role="group" aria-label="Ground colour">
+              <button class="radio-tab active" data-ground="navy" aria-pressed="true" style="background:#0B1F3A;color:#F5F1E8;border-color:#0B1F3A;">Navy</button>
+              <button class="radio-tab" data-ground="ivory" aria-pressed="false" style="background:#F5F1E8;color:#0B1F3A;border-color:#e0dcca;">Ivory</button>
+              <button class="radio-tab" data-ground="white" aria-pressed="false" style="background:#fff;color:#0B1F3A;border-color:#ccc;">White</button>
+              <button class="radio-tab" data-ground="blue" aria-pressed="false" style="background:#2D6BFF;color:#fff;border-color:#2D6BFF;">Blue</button>
+            </div>
+          </div>
+          <div class="ctrl-group">
+            <label class="ctrl-label">Scale: <span id="scale-val">240</span>px</label>
+            <input type="range" id="logo-scale" min="24" max="480" value="240" class="slider" aria-label="Logo scale" />
+          </div>
+          <div class="ctrl-group">
+            <label class="ctrl-label" style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+              <input type="checkbox" id="clearspace-toggle" style="accent-color:var(--blue);" /> Show Clear Space
+            </label>
+          </div>
+        </div>
+
+        <div class="playground-stage" id="playground-stage" aria-live="polite">
+          <div class="clearspace-box" id="clearspace-box" aria-hidden="true"></div>
+          <img id="playground-logo" src="assets/logos/logo-primary-horizontal-navy.svg" alt="Northstar Advisory logo preview" />
+        </div>
+
+        <div class="playground-footer">
+          <button class="btn-secondary" id="logo-download" aria-label="Download current logo SVG">↓ Download SVG</button>
+          <span class="playground-hint">Min. digital size: 24px (mark alone) / 120px (full lockup)</span>
+        </div>
+      </div>
+
+      <!-- Logo Versions -->
+      <h3 class="subsection-title" style="margin-top:64px;">All Logo Versions</h3>
+      <div class="logo-versions-grid">
+        <div class="logo-version-card" style="background:#0B1F3A;">
+          <img src="assets/logos/logo-primary-horizontal-ivory.svg" alt="Primary horizontal logo on Navy" />
+          <p>Primary Horizontal — Navy</p>
+        </div>
+        <div class="logo-version-card" style="background:#F5F1E8;">
+          <img src="assets/logos/logo-primary-horizontal-navy.svg" alt="Primary horizontal logo on Ivory" />
+          <p style="color:#0B1F3A;">Primary Horizontal — Ivory</p>
+        </div>
+        <div class="logo-version-card" style="background:#0B1F3A;">
+          <img src="assets/logos/logo-secondary-stacked-ivory.svg" alt="Stacked logo on Navy" style="max-height:80px;" />
+          <p>Secondary Stacked — Navy</p>
+        </div>
+        <div class="logo-version-card" style="background:#2D6BFF;">
+          <img src="assets/logos/logo-primary-horizontal-ivory.svg" alt="Primary horizontal logo on Blue" />
+          <p>Primary Horizontal — Blue</p>
+        </div>
+        <div class="logo-version-card" style="background:#0B1F3A;">
+          <img src="assets/logos/logomark-blue.svg" alt="Logomark on Navy" style="max-height:64px;" />
+          <p>Mark Only — Navy</p>
+        </div>
+        <div class="logo-version-card" style="background:#F5F1E8;">
+          <img src="assets/logos/wordmark-navy.svg" alt="Wordmark on Ivory" />
+          <p style="color:#0B1F3A;">Wordmark — Ivory</p>
+        </div>
+      </div>
+
+      <!-- Misuse rules -->
+      <h3 class="subsection-title" style="margin-top:64px;">Prohibited Usage</h3>
+      <div class="misuse-grid" id="misuse-grid">
+        <div class="misuse-card">
+          <div class="misuse-x">✕</div>
+          <p>Do not recolour the mark</p>
+        </div>
+        <div class="misuse-card">
+          <div class="misuse-x">✕</div>
+          <p>Do not stretch or distort</p>
+        </div>
+        <div class="misuse-card">
+          <div class="misuse-x">✕</div>
+          <p>Do not add drop shadows</p>
+        </div>
+        <div class="misuse-card">
+          <div class="misuse-x">✕</div>
+          <p>Do not add outlines or borders</p>
+        </div>
+        <div class="misuse-card">
+          <div class="misuse-x">✕</div>
+          <p>Do not place on busy backgrounds</p>
+        </div>
+        <div class="misuse-card">
+          <div class="misuse-x">✕</div>
+          <p>Do not use non-approved colour grounds</p>
+        </div>
+        <div class="misuse-card">
+          <div class="misuse-x">✕</div>
+          <p>Do not rotate or flip</p>
+        </div>
+        <div class="misuse-card">
+          <div class="misuse-x">✕</div>
+          <p>Do not use below minimum size</p>
+        </div>
+      </div>
+
+      <!-- Clear space rule -->
+      <div class="clearspace-rule card" style="margin-top:40px;display:flex;gap:32px;align-items:center;flex-wrap:wrap;">
+        <div style="flex:1;min-width:200px;">
+          <h4 style="margin-bottom:8px;">Clear Space Rule</h4>
+          <p style="color:var(--fg-muted);">Always maintain a minimum clear space equal to the height of the logomark on all four sides. This protects the mark's visual integrity and legibility.</p>
+          <ul style="color:var(--fg-muted);margin-top:12px;padding-left:20px;font-size:14px;">
+            <li>Full lockup: min 120px digital / 0.3in print</li>
+            <li>Mark alone: min 24px digital / 0.2in print</li>
+          </ul>
+        </div>
+        <div class="clearspace-diagram" aria-label="Clear space diagram">
+          <div class="clearspace-outer">
+            <div class="clearspace-label-top">1× mark height</div>
+            <div class="clearspace-inner">
+              <img src="assets/logos/logomark-blue.svg" alt="" style="width:40px;height:40px;" />
+            </div>
+            <div class="clearspace-label-bottom">1× mark height</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       04 COLOUR SYSTEM
+  ============================================================ -->
+  <section id="colour-system" class="section" aria-labelledby="colour-title">
+    <div class="container">
+      <span class="section-label">04 — Colour System</span>
+      <h2 class="section-title" id="colour-title">Colour Palette</h2>
+      <p class="section-subtitle">A restrained, precise palette anchored by Deep Navy dominance. Click any swatch to copy the hex value.</p>
+
+      <!-- Colour ratio bar -->
+      <div class="colour-ratio-bar" role="img" aria-label="60% Navy, 30% Ivory, 10% Electric Blue">
+        <div class="ratio-seg" style="width:60%;background:#0B1F3A;" title="Deep Navy 60%">
+          <span>60%</span>
+        </div>
+        <div class="ratio-seg" style="width:30%;background:#F5F1E8;color:#0B1F3A;" title="Warm Ivory 30%">
+          <span>30%</span>
+        </div>
+        <div class="ratio-seg" style="width:10%;background:#2D6BFF;" title="Electric Blue 10%">
+          <span>10%</span>
+        </div>
+      </div>
+      <div class="ratio-labels">
+        <span>Deep Navy</span><span>Warm Ivory</span><span>Electric Blue</span>
+      </div>
+
+      <!-- Core swatches -->
+      <div class="color-swatch-grid" id="color-swatch-grid">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Extended palette -->
+      <h3 class="subsection-title" style="margin-top:48px;">Extended Palette</h3>
+      <div class="extended-swatches" id="extended-swatches">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- WCAG contrast matrix -->
+      <h3 class="subsection-title" style="margin-top:48px;">Contrast & Accessibility</h3>
+      <p style="color:var(--fg-muted);margin-bottom:24px;font-size:15px;">All primary pairings meet WCAG AA (4.5:1 minimum). Primary pairings exceed WCAG AAA (7:1).</p>
+      <div class="contrast-matrix" id="contrast-matrix">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       05 TYPOGRAPHY
+  ============================================================ -->
+  <section id="typography" class="section" aria-labelledby="type-title">
+    <div class="container">
+      <span class="section-label">05 — Typography</span>
+      <h2 class="section-title" id="type-title">Typography System</h2>
+      <p class="section-subtitle">Manrope for authority and clarity. DM Sans for readability and precision. Two typefaces, one voice.</p>
+
+      <!-- Typeface showcases -->
+      <div class="grid-2" style="margin-bottom:48px;">
+        <div class="type-specimen card">
+          <div class="specimen-label">Primary — Manrope</div>
+          <div class="specimen-display" style="font-family:'Manrope',sans-serif;font-size:clamp(40px,6vw,80px);font-weight:700;line-height:1;color:var(--fg);">Aa</div>
+          <div class="specimen-weights">
+            <span style="font-family:'Manrope',sans-serif;font-weight:300;">Light 300</span>
+            <span style="font-family:'Manrope',sans-serif;font-weight:400;">Regular 400</span>
+            <span style="font-family:'Manrope',sans-serif;font-weight:500;">Medium 500</span>
+            <span style="font-family:'Manrope',sans-serif;font-weight:600;">SemiBold 600</span>
+            <span style="font-family:'Manrope',sans-serif;font-weight:700;">Bold 700</span>
+          </div>
+          <p class="specimen-use">Headlines, Display Type, Navigation, Buttons</p>
+        </div>
+        <div class="type-specimen card">
+          <div class="specimen-label">Secondary — DM Sans</div>
+          <div class="specimen-display" style="font-family:'DM Sans',sans-serif;font-size:clamp(40px,6vw,80px);font-weight:400;line-height:1;color:var(--fg);">Aa</div>
+          <div class="specimen-weights">
+            <span style="font-family:'DM Sans',sans-serif;font-weight:400;">Regular 400</span>
+            <span style="font-family:'DM Sans',sans-serif;font-weight:500;">Medium 500</span>
+          </div>
+          <p class="specimen-use">Body Copy, Captions, Tables, Labels, Metadata</p>
+        </div>
+      </div>
+
+      <!-- Type hierarchy -->
+      <h3 class="subsection-title">Type Hierarchy</h3>
+      <div class="type-hierarchy" id="type-hierarchy">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Typography Studio -->
+      <div class="type-studio card" style="margin-top:48px;">
+        <div class="studio-header">
+          <h3 class="card-title">Live Typography Studio</h3>
+          <p style="color:var(--fg-muted);font-size:14px;">Test copy in brand typefaces before use</p>
+        </div>
+        <div class="studio-controls">
+          <div class="ctrl-group">
+            <label class="ctrl-label">Font</label>
+            <select id="studio-font" class="studio-select" aria-label="Select font family">
+              <option value="'Manrope', sans-serif">Manrope (Primary)</option>
+              <option value="'DM Sans', sans-serif">DM Sans (Secondary)</option>
+            </select>
+          </div>
+          <div class="ctrl-group">
+            <label class="ctrl-label">Weight</label>
+            <select id="studio-weight" class="studio-select" aria-label="Select font weight">
+              <option value="300">Light 300</option>
+              <option value="400">Regular 400</option>
+              <option value="500">Medium 500</option>
+              <option value="600" selected>SemiBold 600</option>
+              <option value="700">Bold 700</option>
+            </select>
+          </div>
+          <div class="ctrl-group">
+            <label class="ctrl-label">Size: <span id="studio-size-val">32</span>px</label>
+            <input type="range" id="studio-size" min="12" max="96" value="32" class="slider" aria-label="Font size" />
+          </div>
+          <div class="ctrl-group">
+            <label class="ctrl-label">Tracking: <span id="studio-tracking-val">0</span>em</label>
+            <input type="range" id="studio-tracking" min="-5" max="20" value="0" step="1" class="slider" aria-label="Letter spacing" />
+          </div>
+          <div class="ctrl-group">
+            <label class="ctrl-label">Background</label>
+            <div class="radio-tabs" id="studio-bg-tabs" role="group" aria-label="Preview background">
+              <button class="radio-tab active" data-bg="navy" style="background:#0B1F3A;color:#F5F1E8;">Navy</button>
+              <button class="radio-tab" data-bg="ivory" style="background:#F5F1E8;color:#0B1F3A;">Ivory</button>
+              <button class="radio-tab" data-bg="blue" style="background:#2D6BFF;color:#fff;">Blue</button>
+            </div>
+          </div>
+        </div>
+        <div class="studio-preview" id="studio-preview">
+          <div class="studio-preview-inner" id="studio-preview-inner" contenteditable="true" aria-label="Editable typography preview">
+            Clarity in complexity.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       06 GRAPHIC LANGUAGE
+  ============================================================ -->
+  <section id="graphic-language" class="section" aria-labelledby="graphic-title">
+    <div class="container">
+      <span class="section-label">06 — Graphic Language</span>
+      <h2 class="section-title" id="graphic-title">Graphic Language</h2>
+      <p class="section-subtitle">A precise visual vocabulary: dot-grids, directional line geometry, and contained negative space. Structure made visible.</p>
+
+      <div class="grid-2" style="margin-bottom:48px;">
+        <div class="card">
+          <h3 class="card-title">Dot-Grid Pattern</h3>
+          <div class="pattern-preview" style="background:url('assets/patterns/pattern-dotgrid.svg') repeat;background-size:24px;height:180px;border-radius:4px;border:1px solid var(--border);"></div>
+          <p style="font-size:14px;color:var(--fg-muted);margin-top:12px;">Used as background texture on hero sections, dividers, and report covers. Evokes precision, data, and structured thinking.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Star Matrix Pattern</h3>
+          <div class="pattern-preview" style="background:url('assets/patterns/pattern-star-matrix.svg') repeat;background-size:40px;height:180px;border-radius:4px;border:1px solid var(--border);"></div>
+          <p style="font-size:14px;color:var(--fg-muted);margin-top:12px;">Repeated logomark fragments as brand texture — packaging tape, slide backgrounds, and merchandise applications.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3 class="card-title">Line Weights</h3>
+          <div class="line-demos">
+            <div class="line-demo"><div style="height:1px;background:var(--fg);opacity:0.5;"></div><span>1px — Hairline, grid rules</span></div>
+            <div class="line-demo"><div style="height:2px;background:#2D6BFF;"></div><span>2px Blue — Section markers, active rules</span></div>
+            <div class="line-demo"><div style="height:3px;background:var(--fg);"></div><span>3px — Thick accent strokes</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Corner Radius</h3>
+          <div class="radius-demos">
+            <div class="radius-demo" style="border-radius:0;"><span>0px — Precise containers</span></div>
+            <div class="radius-demo" style="border-radius:2px;"><span>2px — Subtle soft</span></div>
+            <div class="radius-demo" style="border-radius:4px;"><span>4px — Standard UI</span></div>
+            <div class="radius-demo" style="border-radius:8px;"><span>8px — Cards, modals</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Grid & Spacing</h3>
+          <ul style="list-style:none;padding:0;font-size:14px;color:var(--fg-muted);line-height:2;">
+            <li>12-column grid system</li>
+            <li>Base unit: 8px</li>
+            <li>Column gutter: 24px</li>
+            <li>Section padding: 120px vertical</li>
+            <li>Container max-width: 1280px</li>
+            <li>Generous whitespace — never dense</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       07 PHOTOGRAPHY
+  ============================================================ -->
+  <section id="photography" class="section" aria-labelledby="photo-title">
+    <div class="container">
+      <span class="section-label">07 — Photography Direction</span>
+      <h2 class="section-title" id="photo-title">Photography Direction</h2>
+      <p class="section-subtitle">Composed, professional imagery. Boardroom precision meets human clarity. No stock-photo clichés — real environments, real decision-making.</p>
+
+      <div class="gallery-filters" role="group" aria-label="Gallery filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="environment">Environment</button>
+        <button class="filter-btn" data-filter="consultation">Consultation</button>
+        <button class="filter-btn" data-filter="product">Mockups</button>
+      </div>
+
+      <div class="gallery-grid" id="gallery-grid">
+        <div class="gallery-item" data-cat="consultation" data-src="assets/mockups/Artboard 1.png" data-caption="Executive Consultation — Northstar Brand Application">
+          <img src="assets/mockups/Artboard 1.png" alt="Northstar Advisory executive consultation mockup" loading="lazy" />
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
+        <div class="gallery-item" data-cat="product" data-src="assets/mockups/Artboard 2.png" data-caption="Brand Stationery Suite — Navy & Ivory">
+          <img src="assets/mockups/Artboard 2.png" alt="Northstar Advisory stationery mockup" loading="lazy" />
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
+        <div class="gallery-item" data-cat="product" data-src="assets/mockups/Artboard 3.png" data-caption="Brand Applications — Presentation Materials">
+          <img src="assets/mockups/Artboard 3.png" alt="Northstar Advisory presentation materials" loading="lazy" />
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
+        <div class="gallery-item" data-cat="environment" data-src="assets/mockups/wafiq-raza-bCdAVooTNm0-unsplash.jpg" data-caption="Architectural Environment — Glass & Precision">
+          <img src="assets/mockups/wafiq-raza-bCdAVooTNm0-unsplash.jpg" alt="Architectural environment photography" loading="lazy" />
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
+        <div class="gallery-item" data-cat="product" data-src="assets/mockups/Cardboard_Tube_Mockup_4.png" data-caption="Printed Collateral — Tube Mailer Packaging">
+          <img src="assets/mockups/Cardboard_Tube_Mockup_4.png" alt="Cardboard tube packaging mockup" loading="lazy" />
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
+        <div class="gallery-item" data-cat="product" data-src="assets/mockups/Free_Billboard_Mockup.jpg" data-caption="OOH Application — Billboard">
+          <img src="assets/mockups/Free_Billboard_Mockup.jpg" alt="Billboard mockup" loading="lazy" />
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
+        <div class="gallery-item" data-cat="product" data-src="assets/mockups/Free_Square_Roll_Sticker_Mockup_5.png" data-caption="Brand Stickers — Square Roll">
+          <img src="assets/mockups/Free_Square_Roll_Sticker_Mockup_5.png" alt="Sticker mockup" loading="lazy" />
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
+        <div class="gallery-item" data-cat="consultation" data-src="assets/mockups/Gemini_Generated_Image_c05panc05panc05p.jpg" data-caption="Strategic Consultation — Meeting Room">
+          <img src="assets/mockups/Gemini_Generated_Image_c05panc05panc05p.jpg" alt="Consultation room" loading="lazy" />
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
+        <div class="gallery-item" data-cat="environment" data-src="assets/mockups/Gemini_Generated_Image_pps39tpps39tpps3.png" data-caption="Executive Suite — Office Environment">
+          <img src="assets/mockups/Gemini_Generated_Image_pps39tpps39tpps3.png" alt="Executive office" loading="lazy" />
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
+        <div class="gallery-item" data-cat="product" data-src="assets/mockups/2.png" data-caption="Brand Collateral — Print Application">
+          <img src="assets/mockups/2.png" alt="Print collateral" loading="lazy" />
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+    <button class="lightbox-close" id="lb-close" aria-label="Close">✕</button>
+    <button class="lightbox-nav" id="lb-prev" aria-label="Previous image">‹</button>
+    <div class="lightbox-content">
+      <img id="lb-img" src="" alt="" />
+      <p id="lb-caption" class="lightbox-caption"></p>
+    </div>
+    <button class="lightbox-nav" id="lb-next" aria-label="Next image">›</button>
+  </div>
+
+  <!-- ============================================================
+       08 BRAND VOICE
+  ============================================================ -->
+  <section id="brand-voice" class="section" aria-labelledby="voice-title">
+    <div class="container">
+      <span class="section-label">08 — Brand Voice</span>
+      <h2 class="section-title" id="voice-title">Brand Voice & Tone</h2>
+      <p class="section-subtitle">Calm, precise, never condescending. Full stops over exclamation marks. Sentences that land with weight, not volume.</p>
+
+      <div class="voice-principles">
+        <div class="card">
+          <div class="principle-num">01</div>
+          <h3>Direct</h3>
+          <p>Lead with the point. No meandering preamble. The answer, then the rationale.</p>
+          <div class="voice-example">
+            <div class="ve-bad">❌ "In order to facilitate the process of strategic alignment across organizational stakeholders..."</div>
+            <div class="ve-good">✓ "Here is the plan. Here is why it works."</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="principle-num">02</div>
+          <h3>Precise</h3>
+          <p>Use specific numbers, timeframes, and outcomes. Vague language signals uncertainty.</p>
+          <div class="voice-example">
+            <div class="ve-bad">❌ "We'll grow your business significantly in a short period..."</div>
+            <div class="ve-good">✓ "Measurable results within 90 days. A working system that survives beyond the engagement."</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="principle-num">03</div>
+          <h3>Confident without arrogance</h3>
+          <p>Quiet authority. We don't shout. We don't oversell. Certainty comes from evidence, not volume.</p>
+          <div class="voice-example">
+            <div class="ve-bad">❌ "We are the BEST consultancy in the market!!"</div>
+            <div class="ve-good">✓ "We've seen this pattern before. Here's what works."</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="principle-num">04</div>
+          <h3>Human, not corporate</h3>
+          <p>Speak to the person, not the organisation. Acknowledge complexity. Don't pretend it's easy.</p>
+          <div class="voice-example">
+            <div class="ve-bad">❌ "Utilising synergistic methodologies to optimise holistic outcomes..."</div>
+            <div class="ve-good">✓ "Scaling is hard. We build the framework that makes it manageable."</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Word lists -->
+      <div class="word-lists">
+        <div class="word-list-card approved">
+          <h4>✓ Approved Vocabulary</h4>
+          <div class="word-tags" id="approved-words">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+        <div class="word-list-card banned">
+          <h4>✕ Banned Words</h4>
+          <div class="word-tags" id="banned-words">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Copy Analyzer -->
+      <div class="copy-analyzer card" style="margin-top:48px;">
+        <div class="analyzer-header">
+          <h3 class="card-title">Interactive Copy Analyzer</h3>
+          <div class="analyzer-score" id="analyzer-score" aria-live="polite">
+            <span class="score-num" id="score-num">100</span>
+            <span class="score-label">Voice Score</span>
+          </div>
+        </div>
+        <div class="copy-analyzer-body">
+          <div class="analyzer-input-wrap">
+            <textarea id="copy-input" class="copy-textarea" placeholder="Paste or type your copy here to check it against the Northstar brand voice..." aria-label="Copy analyzer input" rows="8"></textarea>
+          </div>
+          <div class="analyzer-results" id="analyzer-results">
+            <div class="results-empty">Start typing to analyze voice compliance…</div>
+          </div>
+        </div>
+        <div class="analyzer-footer">
+          <button class="btn-secondary" id="clear-copy" aria-label="Clear copy input">Clear</button>
+          <span class="analyzer-hint" style="font-size:13px;color:var(--fg-muted);">Checks for banned words and scores on-brand language use</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       09 BRAND APPLICATIONS
+  ============================================================ -->
+  <section id="applications" class="section" aria-labelledby="apps-title">
+    <div class="container">
+      <span class="section-label">09 — Brand Applications</span>
+      <h2 class="section-title" id="apps-title">Brand in Application</h2>
+      <p class="section-subtitle">The Northstar Advisory identity across print, environmental, and physical touchpoints. Consistent, composed, unmistakably Northstar.</p>
+
+      <div class="applications-grid">
+        <div class="application-card card">
+          <img src="assets/mockups/Cardboard_Tube_Mockup_4.png" alt="Printed tube mailer" loading="lazy" />
+          <div class="application-info">
+            <h4>Print Collateral</h4>
+            <p>Tube mailers, document rolls, and presentation packaging. Navy exterior with Electric Blue typographic labels.</p>
+          </div>
+        </div>
+        <div class="application-card card">
+          <img src="assets/mockups/Free_Billboard_Mockup.jpg" alt="Billboard OOH application" loading="lazy" />
+          <div class="application-info">
+            <h4>Out-of-Home Advertising</h4>
+            <p>Large-format applications use full-bleed Navy with Ivory headline typography. Mark scaled for distance legibility.</p>
+          </div>
+        </div>
+        <div class="application-card card">
+          <img src="assets/mockups/Free_Square_Roll_Sticker_Mockup_5.png" alt="Sticker application" loading="lazy" />
+          <div class="application-info">
+            <h4>Brand Stickers & Labels</h4>
+            <p>Adhesive labels and merchandise stickers. Clean die-cut on transparent or white grounds. Never on colour.</p>
+          </div>
+        </div>
+        <div class="application-card card">
+          <img src="assets/mockups/2.png" alt="Collateral application" loading="lazy" />
+          <div class="application-info">
+            <h4>Stationery Suite</h4>
+            <p>Business cards, letterheads, and presentation decks. Ivory ground with Navy type. Electric Blue as a precision accent rule only.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Icons -->
+      <div class="card" style="margin-top:48px;">
+        <h3 class="card-title">Icon System</h3>
+        <p style="color:var(--fg-muted);margin-bottom:24px;font-size:14px;">1.5px line-weight icons in a consistent geometric style. Always monochrome — Navy on Ivory, Ivory on Navy. No fill icons.</p>
+        <div class="icon-sheet-preview">
+          <img src="assets/icons/icons_sheet.jpg" alt="Northstar Advisory icon set" style="width:100%;border-radius:4px;" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10 DIGITAL BRAND SYSTEM
+  ============================================================ -->
+  <section id="digital-system" class="section" aria-labelledby="digital-title">
+    <div class="container">
+      <span class="section-label">10 — Digital Brand System</span>
+      <h2 class="section-title" id="digital-title">Digital Brand System</h2>
+      <p class="section-subtitle">Translated to pixels — buttons, cards, navigation, and forms that carry the same authority and precision as the print identity.</p>
+
+      <!-- Buttons showcase -->
+      <div class="card" style="margin-bottom:32px;">
+        <h3 class="card-title">Button System</h3>
+        <div class="btn-showcase">
+          <div class="btn-demo">
+            <button class="btn-primary" onclick="void(0)">Primary CTA</button>
+            <div class="btn-spec">Electric Blue fill / Ivory text / 4px radius</div>
+          </div>
+          <div class="btn-demo">
+            <button class="btn-secondary" onclick="void(0)">Secondary Action</button>
+            <div class="btn-spec">Navy outline / Navy text / 4px radius</div>
+          </div>
+          <div class="btn-demo">
+            <button class="btn-ghost" onclick="void(0)">Ghost Button</button>
+            <div class="btn-spec">Transparent / Ivory text / 4px radius</div>
+          </div>
+          <div class="btn-demo">
+            <button class="btn-primary" disabled>Disabled State</button>
+            <div class="btn-spec">50% opacity — no interaction</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cards showcase -->
+      <div class="card" style="margin-bottom:32px;">
+        <h3 class="card-title">Card Components</h3>
+        <div class="card-showcase">
+          <div class="card demo-card">
+            <div class="demo-card-icon" aria-hidden="true">◆</div>
+            <h4>Information Card</h4>
+            <p>Standard content container with 1px border, 8px radius, and subtle elevation on hover.</p>
+          </div>
+          <div class="card demo-card" style="border-color:var(--blue);">
+            <div class="demo-card-icon" style="color:var(--blue);" aria-hidden="true">★</div>
+            <h4>Accent Card</h4>
+            <p>Electric Blue border for featured or priority content. Sparingly — one per view maximum.</p>
+          </div>
+          <div class="card demo-card" style="background:var(--navy);border-color:rgba(245,241,232,0.15);">
+            <div class="demo-card-icon" style="color:#2D6BFF;" aria-hidden="true">▲</div>
+            <h4>Dark Surface Card</h4>
+            <p style="color:rgba(245,241,232,0.55);">Navy background surface with Ivory text. Used for callouts on light backgrounds.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Post Generator -->
+      <div class="card">
+        <h3 class="card-title">Social Post Generator</h3>
+        <p style="color:var(--fg-muted);font-size:14px;margin-bottom:24px;">Generate on-brand social post mockups with proper typography and colour ratios.</p>
+        <div class="social-gen-controls">
+          <input type="text" id="social-headline" class="studio-input" placeholder="Headline" value="Clarity in complexity." aria-label="Social post headline" />
+          <input type="text" id="social-sub" class="studio-input" placeholder="Sub-copy (optional)" value="We turn complexity into a plan you can act on this quarter." aria-label="Social post sub-copy" />
+          <div class="radio-tabs" id="social-bg-tabs" role="group" aria-label="Social post background">
+            <button class="radio-tab active" data-bg="navy">Navy</button>
+            <button class="radio-tab" data-bg="ivory">Ivory</button>
+            <button class="radio-tab" data-bg="blue">Blue</button>
+          </div>
+        </div>
+        <div class="social-gen-preview">
+          <div class="social-post-card" id="social-post-preview">
+            <div class="social-post-mark" aria-hidden="true">
+              <img src="assets/logos/logomark-blue.svg" alt="" />
+            </div>
+            <div class="social-post-headline" id="social-preview-headline">Clarity in complexity.</div>
+            <div class="social-post-sub" id="social-preview-sub">We turn complexity into a plan you can act on this quarter.</div>
+            <div class="social-post-brand">NORTHSTAR ADVISORY</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       11 MOTION DIRECTION
+  ============================================================ -->
+  <section id="motion-system" class="section" aria-labelledby="motion-title">
+    <div class="container">
+      <span class="section-label">11 — Motion Direction</span>
+      <h2 class="section-title" id="motion-title">Motion Direction</h2>
+      <p class="section-subtitle">Purposeful, not decorative. Motion signals meaning — an entrance earns attention, a transition signals progress. No bounce. No elastic. Precision.</p>
+
+      <div class="grid-3" style="margin-bottom:48px;">
+        <div class="card">
+          <h3 class="card-title">Timing</h3>
+          <ul style="list-style:none;padding:0;color:var(--fg-muted);font-size:14px;line-height:2.2;">
+            <li>Logo draw-on: <strong style="color:var(--fg);">250–400ms</strong></li>
+            <li>UI transitions: <strong style="color:var(--fg);">150–300ms</strong></li>
+            <li>Page transitions: <strong style="color:var(--fg);">400–500ms</strong></li>
+            <li>Text stagger: <strong style="color:var(--fg);">60–80ms per line</strong></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Easing</h3>
+          <ul style="list-style:none;padding:0;color:var(--fg-muted);font-size:14px;line-height:2.2;">
+            <li>Primary: <strong style="color:var(--fg);">cubic-bezier(0.22,1,0.36,1)</strong></li>
+            <li>Entrances: <strong style="color:var(--fg);">EaseOut — decelerate in</strong></li>
+            <li>Exits: <strong style="color:var(--fg);">EaseIn — accelerate out</strong></li>
+            <li>❌ Never bounce, elastic, or spring</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Principles</h3>
+          <ul style="list-style:none;padding:0;color:var(--fg-muted);font-size:14px;line-height:2.2;">
+            <li>Horizontal wipes for transitions</li>
+            <li>Directional slides for content</li>
+            <li>8–12px upward slide for text</li>
+            <li>Sequential reveal, not simultaneous</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="motion-demos">
+        <!-- Logo draw-on simulator -->
+        <div class="card">
+          <h3 class="card-title">Logo Draw-On Simulator</h3>
+          <p style="color:var(--fg-muted);font-size:14px;margin-bottom:20px;">Watch the mark segments draw on sequentially — 250–400ms per stroke, EaseOut easing.</p>
+          <div class="motion-demo-stage" id="motion-logo-stage">
+            <svg id="motion-logo-svg" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" style="width:120px;height:120px;" aria-label="Animated logo demo">
+              <g fill="none" stroke="#2D6BFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path class="motion-seg" d="M80,20 A60,60 0 0 1 140,80" />
+                <path class="motion-seg" d="M140,80 A60,60 0 0 1 80,140" />
+                <path class="motion-seg" d="M80,140 A60,60 0 0 1 20,80" />
+                <path class="motion-seg" d="M20,80 A60,60 0 0 1 80,20" />
+                <line class="motion-seg" x1="80" y1="20" x2="80" y2="80" />
+                <line class="motion-seg" x1="140" y1="80" x2="80" y2="80" />
+                <line class="motion-seg" x1="80" y1="140" x2="80" y2="80" />
+                <line class="motion-seg" x1="20" y1="80" x2="80" y2="80" />
+                <line class="motion-seg" x1="80" y1="20" x2="140" y2="80" />
+                <line class="motion-seg" x1="140" y1="80" x2="80" y2="140" />
+                <circle class="motion-seg" cx="80" cy="80" r="10" fill="#2D6BFF" stroke="none" />
+              </g>
+            </svg>
+          </div>
+          <button class="btn-secondary" id="replay-motion" style="margin-top:16px;" aria-label="Replay logo animation">↺ Replay</button>
+        </div>
+
+        <!-- Text reveal demo -->
+        <div class="card">
+          <h3 class="card-title">Line-by-Line Text Reveal</h3>
+          <p style="color:var(--fg-muted);font-size:14px;margin-bottom:20px;">Text lines slide up 10px with 70ms stagger. EaseOut. Never all at once.</p>
+          <div class="text-reveal-demo" id="text-reveal-demo">
+            <div class="reveal-line-item" aria-hidden="true">Clarity</div>
+            <div class="reveal-line-item" aria-hidden="true">in complexity.</div>
+            <div class="reveal-line-item" aria-hidden="true" style="font-size:14px;color:var(--fg-muted);">Northstar Advisory</div>
+          </div>
+          <button class="btn-secondary" id="replay-text-reveal" style="margin-top:16px;" aria-label="Replay text reveal animation">↺ Replay</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       12 BRAND GOVERNANCE
+  ============================================================ -->
+  <section id="governance" class="section" aria-labelledby="gov-title">
+    <div class="container">
+      <span class="section-label">12 — Brand Governance</span>
+      <h2 class="section-title" id="gov-title">Brand Governance</h2>
+      <p class="section-subtitle">Brand consistency is a business asset. These protocols protect the equity built into every Northstar Advisory touchpoint.</p>
+
+      <!-- Modification rights table -->
+      <div class="card" style="margin-bottom:48px;">
+        <h3 class="card-title">Modification Rights</h3>
+        <div class="gov-table-wrap">
+          <table class="gov-table" aria-label="Modification rights by element">
+            <thead>
+              <tr>
+                <th>Brand Element</th>
+                <th>Internal Teams</th>
+                <th>Partner Agencies</th>
+                <th>Vendors</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Logo & Mark</td>
+                <td class="status-no">✕ No modification</td>
+                <td class="status-no">✕ No modification</td>
+                <td class="status-no">✕ No modification</td>
+              </tr>
+              <tr>
+                <td>Colour Palette</td>
+                <td class="status-no">✕ Core only</td>
+                <td class="status-partial">◑ Extended allowed</td>
+                <td class="status-no">✕ Core only</td>
+              </tr>
+              <tr>
+                <td>Typography</td>
+                <td class="status-no">✕ Manrope + DM Sans only</td>
+                <td class="status-partial">◑ System fonts as fallback</td>
+                <td class="status-no">✕ Manrope + DM Sans only</td>
+              </tr>
+              <tr>
+                <td>Copy & Tone</td>
+                <td class="status-yes">✓ Draft with approval</td>
+                <td class="status-partial">◑ With brief from Northstar</td>
+                <td class="status-no">✕ Not permitted</td>
+              </tr>
+              <tr>
+                <td>Photography</td>
+                <td class="status-partial">◑ Approved library only</td>
+                <td class="status-yes">✓ With direction brief</td>
+                <td class="status-no">✕ Not permitted</td>
+              </tr>
+              <tr>
+                <td>Patterns & Graphic Language</td>
+                <td class="status-no">✕ Supplied files only</td>
+                <td class="status-partial">◑ With approval</td>
+                <td class="status-no">✕ Not permitted</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Approval workflow -->
+      <h3 class="subsection-title">Brand Approval Workflow</h3>
+      <p style="color:var(--fg-muted);margin-bottom:32px;">All branded materials require sign-off through this 4-step process before publication or production.</p>
+
+      <div class="approval-stepper" role="list">
+        <div class="approval-step" role="listitem">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h4>Brief Received</h4>
+            <p>Creative brief submitted with scope, channel, deadline, and intended audience.</p>
+          </div>
+        </div>
+        <div class="approval-step-connector" aria-hidden="true">→</div>
+        <div class="approval-step" role="listitem">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h4>Design Review</h4>
+            <p>Internal or partner agency produces initial concept against guidelines.</p>
+          </div>
+        </div>
+        <div class="approval-step-connector" aria-hidden="true">→</div>
+        <div class="approval-step" role="listitem">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h4>Brand Sign-Off</h4>
+            <p>Brand guardian reviews for compliance. Revisions loop back to step 2 if needed.</p>
+          </div>
+        </div>
+        <div class="approval-step-connector" aria-hidden="true">→</div>
+        <div class="approval-step" role="listitem">
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <h4>Publication</h4>
+            <p>Approved final is published. Master files archived to brand asset library.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:48px;border-color:var(--blue);background:rgba(45,107,255,0.04);">
+        <h4 style="color:var(--blue);margin-bottom:8px;">Brand Guardian Contact</h4>
+        <p style="color:var(--fg-muted);">All brand queries, approval requests, and guideline clarifications should be directed to the appointed Brand Guardian. The guardian has final sign-off authority on all Northstar Advisory branded materials.</p>
+        <p style="margin-top:12px;font-size:14px;color:var(--fg-muted);">Agency of record: <strong style="color:var(--fg);">Lyko Artistry</strong> — Identity design, brand strategy, and guidelines.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       42-PAGE GUIDELINE INSPECTOR
+  ============================================================ -->
+  <section id="inspector" class="section inspector-section" aria-labelledby="inspector-title">
+    <div class="container">
+      <span class="section-label">Guideline Inspector</span>
+      <h2 class="section-title" id="inspector-title">42-Page Brand Guidelines</h2>
+      <p class="section-subtitle">Browse every page of the official brand guidelines document. Use arrow keys or swipe to navigate.</p>
+
+      <div class="inspector-wrap">
+        <!-- Thumbnail strip -->
+        <div class="inspector-thumbnails" id="inspector-thumbnails" role="listbox" aria-label="Page thumbnails">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Main viewer -->
+        <div class="inspector-main">
+          <div class="inspector-stage" id="inspector-stage">
+            <img id="inspector-img" src="assets/pdf_pages/page_01.png" alt="Brand guidelines page 1 — Cover" />
+          </div>
+          <div class="inspector-meta" id="inspector-meta">
+            <span class="inspector-section-tag" id="inspector-section-tag">Intro</span>
+            <h3 class="inspector-page-title" id="inspector-page-title">Cover</h3>
+            <p class="inspector-page-desc" id="inspector-page-desc">Northstar Advisory official cover with blue gradient and squircle logomark.</p>
+          </div>
+          <div class="inspector-controls" aria-label="Page navigation">
+            <button class="btn-secondary" id="insp-prev" aria-label="Previous page">← Prev</button>
+            <span class="inspector-counter" id="inspector-counter" aria-live="polite">Page 1 of 42</span>
+            <button class="btn-primary" id="insp-next" aria-label="Next page">Next →</button>
+          </div>
+
+          <!-- Download PDF -->
+          <div style="text-align:center;margin-top:16px;">
+            <a href="assets/pdf/Northstar_Advisory_Brand_Guidelines.pdf" download class="btn-ghost" aria-label="Download brand guidelines PDF">↓ Download Full PDF</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ASSET HUB
+  ============================================================ -->
+  <section id="assets-hub" class="section" aria-labelledby="assets-title">
+    <div class="container">
+      <span class="section-label">Asset Hub</span>
+      <h2 class="section-title" id="assets-title">Brand Asset Downloads</h2>
+      <p class="section-subtitle">All production-ready files in one place. Logos in SVG format, patterns, icons, and the complete brand guidelines PDF.</p>
+
+      <div class="asset-downloads">
+        <a href="assets/Northstar_Advisory_Assets_Master.zip" download class="asset-download-card" aria-label="Download complete brand assets ZIP">
+          <div class="asset-icon" aria-hidden="true">📦</div>
+          <h4>Complete Asset Pack</h4>
+          <p>All logos, patterns, icons, and PDF in one ZIP.</p>
+          <span class="asset-size">5.0 MB</span>
+        </a>
+        <a href="assets/logos/logo-primary-horizontal-navy.svg" download class="asset-download-card" aria-label="Download primary horizontal logo SVG">
+          <div class="asset-icon" aria-hidden="true">
+            <img src="assets/logos/logo-primary-horizontal-navy.svg" alt="" style="height:32px;filter:invert(1);" />
+          </div>
+          <h4>Primary Logo (Horizontal)</h4>
+          <p>SVG — works on Navy & Ivory grounds</p>
+          <span class="asset-size">SVG</span>
+        </a>
+        <a href="assets/logos/logo-secondary-stacked-ivory.svg" download class="asset-download-card" aria-label="Download stacked logo SVG">
+          <div class="asset-icon" aria-hidden="true">
+            <img src="assets/logos/logo-secondary-stacked-ivory.svg" alt="" style="height:40px;" />
+          </div>
+          <h4>Secondary Logo (Stacked)</h4>
+          <p>SVG — for square &amp; portrait layouts</p>
+          <span class="asset-size">SVG</span>
+        </a>
+        <a href="assets/logos/logomark-blue.svg" download class="asset-download-card" aria-label="Download logomark SVG">
+          <div class="asset-icon" aria-hidden="true">
+            <img src="assets/logos/logomark-blue.svg" alt="" style="height:40px;" />
+          </div>
+          <h4>Logomark Only</h4>
+          <p>SVG — favicons, avatars, stamps</p>
+          <span class="asset-size">SVG</span>
+        </a>
+        <a href="assets/patterns/pattern-dotgrid.svg" download class="asset-download-card" aria-label="Download dot-grid pattern SVG">
+          <div class="asset-icon" aria-hidden="true">⋯</div>
+          <h4>Dot-Grid Pattern</h4>
+          <p>SVG — background texture tile</p>
+          <span class="asset-size">SVG</span>
+        </a>
+        <a href="assets/pdf/Northstar_Advisory_Brand_Guidelines.pdf" download class="asset-download-card" aria-label="Download brand guidelines PDF">
+          <div class="asset-icon" aria-hidden="true">📄</div>
+          <h4>Brand Guidelines PDF</h4>
+          <p>42-page official guidelines document</p>
+          <span class="asset-size">PDF</span>
+        </a>
+      </div>
+
+      <!-- Logo previews on all grounds -->
+      <h3 class="subsection-title" style="margin-top:64px;">Logo on All Approved Grounds</h3>
+      <div class="logo-ground-previews">
+        <div class="ground-preview" style="background:#0B1F3A;">
+          <img src="assets/logos/logo-primary-horizontal-ivory.svg" alt="Logo on Navy background" />
+          <p>Deep Navy #0B1F3A</p>
+        </div>
+        <div class="ground-preview" style="background:#F5F1E8;">
+          <img src="assets/logos/logo-primary-horizontal-navy.svg" alt="Logo on Ivory background" />
+          <p style="color:#0B1F3A;">Warm Ivory #F5F1E8</p>
+        </div>
+        <div class="ground-preview" style="background:#FFFFFF;border:1px solid #eee;">
+          <img src="assets/logos/logo-primary-horizontal-navy.svg" alt="Logo on White background" />
+          <p style="color:#0B1F3A;">White #FFFFFF</p>
+        </div>
+        <div class="ground-preview" style="background:#2D6BFF;">
+          <img src="assets/logos/logo-primary-horizontal-ivory.svg" alt="Logo on Electric Blue background" />
+          <p>Electric Blue #2D6BFF</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="assets/logos/logo-primary-horizontal-ivory.svg" alt="Northstar Advisory" style="height:28px;" />
+          <p class="footer-tagline">Clarity in complexity.</p>
+          <p class="footer-copy">Strategic Business Consultancy</p>
+        </div>
+        <div class="footer-links">
+          <h5>Sections</h5>
+          <ul>
+            <li><a href="#intro">Brand Introduction</a></li>
+            <li><a href="#strategy">Brand Strategy</a></li>
+            <li><a href="#logo-system">Logo System</a></li>
+            <li><a href="#colour-system">Colour System</a></li>
+            <li><a href="#typography">Typography</a></li>
+            <li><a href="#brand-voice">Brand Voice</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h5>Tools</h5>
+          <ul>
+            <li><a href="#logo-system">Logo Playground</a></li>
+            <li><a href="#brand-voice">Copy Analyzer</a></li>
+            <li><a href="#typography">Type Studio</a></li>
+            <li><a href="#inspector">Slide Viewer</a></li>
+            <li><a href="#assets-hub">Asset Downloads</a></li>
+          </ul>
+        </div>
+        <div class="footer-meta">
+          <h5>Document</h5>
+          <p>Brand Guidelines v1.0</p>
+          <p>Identity design by <strong>Lyko Artistry</strong></p>
+          <p style="margin-top:16px;font-size:12px;opacity:0.4;">© 2026 Northstar Advisory.<br/>All brand assets reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       COMMAND PALETTE
+  ============================================================ -->
+  <div id="cmd-palette" class="cmd-palette" role="dialog" aria-modal="true" aria-label="Search brand sections" hidden>
+    <div class="cmd-backdrop" id="cmd-backdrop"></div>
+    <div class="cmd-box">
+      <div class="cmd-input-wrap">
+        <span class="cmd-icon" aria-hidden="true">⌕</span>
+        <input type="text" id="cmd-input" class="cmd-input" placeholder="Search brand sections…" autocomplete="off" aria-label="Search" />
+        <kbd class="cmd-esc" aria-label="Close">ESC</kbd>
+      </div>
+      <ul class="cmd-results" id="cmd-results" role="listbox" aria-label="Search results">
+        <!-- Populated by JS -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SCRIPTS
+  ============================================================ -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
